@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             avatarPreview.style.height = "100%";
             avatarPreview.style.objectFit = "cover";
         } else {
-            avatarPreview.src = "/all_pictures/Rectangle 40.png"; // твоя стандартная
+            avatarPreview.src = "/all_pictures/Rectangle 40.png";
         }
 
     } catch (err) {
@@ -61,8 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const avatarPreview = document.querySelector(".avatar-preview");
 
         let photoBase64 = avatarPreview.src;
-
-        // Если выбрана новая фотография — конвертируем в Base64
+        
         if (avatarInput.files.length > 0) {
             const file = avatarInput.files[0];
             const reader = new FileReader();
@@ -73,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const updateData = {
-            login: cookies.userLogin,       // текущий логин из куки
+            login: cookies.userLogin,       
             newLogin: loginInput.value,
             email: emailInput.value,
             password: passwordInput.value,
@@ -91,8 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const result = await response.json();
 
             alert(result.message);
-
-            // Обновляем куку, если логин изменился
+            
             if (updateData.newLogin && updateData.newLogin !== cookies.userLogin) {
                 document.cookie = `userLogin=${encodeURIComponent(updateData.newLogin)}; path=/;`;
             }
@@ -111,8 +109,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         passwordInputs.type = isPasswordVisible ? "password" : "text";
         eyeIcon.src = isPasswordVisible 
-            ? "/all_pictures/closeeye.png"    // скрыт
-            : "/all_pictures/openeye.png";    // открыт
+            ? "/all_pictures/closeeye.png"   
+            : "/all_pictures/openeye.png";    
     });
 
     const deleteBtn = document.querySelector(".butdel");
@@ -148,8 +146,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const exitBtn = document.querySelector(".butexit");
 
     exitBtn.addEventListener("click", () => {
-        document.cookie = "userLogin=; path=/; max-age=0"; // очищаем куки
-        window.location.href = "/all_HTML/main.html"; // редирект на главную
+        document.cookie = "userLogin=; path=/; max-age=0"; 
+        window.location.href = "/all_HTML/main.html"; 
     });
     
     const listContainer = document.querySelector(".listofactivities");
@@ -157,11 +155,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const rightArrow = document.querySelector(".right");
 
     try {
-        // Получаем избранные памятники с сервера
         const response = await fetch(`https://localhost:7156/api/Favorites/user/details?userLogin=${encodeURIComponent(userLogin)}`);
         if (!response.ok) throw new Error("Ошибка при получении избранного");
 
-        let favorites = await response.json(); // массив объектов { Name, City, Photos: [{url}] }
+        let favorites = await response.json(); 
 
         if (!favorites || favorites.length === 0) {
             listContainer.innerHTML = `<p class="empty-collection-message">Пока нет избранных памятников</p>`;
@@ -173,7 +170,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         let currentPage = 0;
 
         function renderPage(page) {
-            // Пересчёт totalPages после возможных удалений
             const totalPages = Math.ceil(favorites.length / pageSize);
             if (page >= totalPages) page = totalPages - 1 < 0 ? 0 : totalPages - 1;
             currentPage = page;
@@ -202,23 +198,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
                 `;
 
-                // Клик по карточке
                 card.addEventListener("click", () => {
                     const monumentName = mon.name;
                     if (!monumentName) return;
 
-                    // Сохраняем выбранный памятник в куки на 1 день
                     document.cookie = `selectedMonument=${encodeURIComponent(monumentName)}; path=/; max-age=${24*60*60}`;
 
-                    // Переход на страницу деталей
                     window.location.href = "/all_HTML/destination.html";
                 });
-
 
                 listContainer.appendChild(card);
             });
 
-            // Стрелки
             leftArrow.style.opacity = page === 0 ? 0.5 : 1;
             rightArrow.style.opacity = page === totalPages - 1 ? 0.5 : 1;
             leftArrow.style.pointerEvents = page === 0 ? "none" : "auto";
@@ -227,7 +218,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (totalPages <= 1) leftArrow.style.display = rightArrow.style.display = "none";
             else leftArrow.style.display = rightArrow.style.display = "flex";
 
-            // Сердечки (удаление из избранного)
             document.querySelectorAll(".butcon").forEach(heart => {
                 heart.addEventListener("click", async (event) => {
                     event.stopPropagation();
@@ -238,7 +228,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const isFav = heart.src.includes("/all_pictures/full_heart.png");
                     if (isFav) {
                         await fetch(`https://localhost:7156/api/Favorites/removeByName?userLogin=${encodeURIComponent(userLogin)}&monumentName=${encodeURIComponent(monumentName)}`, { method: "DELETE" });
-                        // Удаляем из массива и перерендериваем страницу
                         favorites.splice(favorites.findIndex(f => f.name === monumentName), 1);
                         renderPage(currentPage);
                     }
@@ -248,7 +237,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         renderPage(currentPage);
 
-        // Навигация стрелками
         leftArrow.addEventListener("click", () => {
             if (currentPage > 0) {
                 currentPage--;
