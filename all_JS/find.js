@@ -6,7 +6,6 @@ const cookies = document.cookie.split(";").reduce((acc, c) => {
 }, {});
 const userLogin = cookies.userLogin;
 
-// Если пользователь вошёл — показываем логин
 if (userLogin && userLogin.trim() !== "") {
     registrationLink.textContent = userLogin;
     registrationLink.href = "/all_HTML/profile.html";
@@ -14,7 +13,7 @@ if (userLogin && userLogin.trim() !== "") {
 
         const logo = document.getElementById('logo');
         logo.addEventListener('click', () => {
-            window.location.href = '/all_HTML/main.html'; // или путь к главной
+            window.location.href = '/all_HTML/main.html'; 
         });
 
 
@@ -59,24 +58,20 @@ async function loadFilteredMonuments() {
 const countryName = searchInput.value.trim();
     const categoryName = categorySelect.value;
 
-    // Запомнили выбранные фильтры
     let filterText = [];
     if (countryName) filterText.push(`Страна: ${countryName}`);
     if (categoryName) filterText.push(`Категория: ${categoryName}`);
 
-    // Сформировали URL
     let url = "https://localhost:7156/api/MonumentDetails/filtered?";
 
     if (countryName) url += `countryName=${encodeURIComponent(countryName)}&`;
     if (categoryName) url += `categoryName=${encodeURIComponent(categoryName)}&`;
 
-    // Очистили
     const response = await fetch(url);
     const monuments = await response.json();
 
     listContainer.innerHTML = "";
 
-    // Обновляем текст фильтров
     const filterInfo = document.querySelector(".current-filters");
 
     if (filterText.length > 0) {
@@ -86,7 +81,6 @@ const countryName = searchInput.value.trim();
         filterInfo.classList.add("hidden");
     }
 
-    // ✅ Сброс фильтров в UI
     searchInput.value = "";
     categorySelect.value = "";
 
@@ -98,7 +92,6 @@ const countryName = searchInput.value.trim();
         return;
     }
 
-    // Получаем избранное
     let favorites = [];
     if (userLogin) {
         const favResponse = await fetch(`https://localhost:7156/api/Favorites/user?userLogin=${encodeURIComponent(userLogin)}`);
@@ -174,7 +167,6 @@ function addCardEvents() {
     });
 }
 
-// Поиск по странам
 searchInput.addEventListener("input", function () {
     const value = this.value.toLowerCase();
     countryList.innerHTML = "";
@@ -198,5 +190,6 @@ document.addEventListener("click", (e) => {
         countryList.classList.add("hidden");
     }
 });
+
 
 findButton.addEventListener("click", loadFilteredMonuments);
