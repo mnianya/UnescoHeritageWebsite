@@ -195,11 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     eyeIcon.addEventListener('click', () => {
         if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';  // показываем пароль
-            eyeIcon.src = '/all_pictures/openeye.png'; // можно менять иконку
+            passwordInput.type = 'text';  
+            eyeIcon.src = '/all_pictures/openeye.png'; 
         } else {
-            passwordInput.type = 'password'; // скрываем пароль
-            eyeIcon.src = '/all_pictures/closeeye.png'; // возвращаем иконку
+            passwordInput.type = 'password'; 
+            eyeIcon.src = '/all_pictures/closeeye.png'; 
         }
     });
 
@@ -208,11 +208,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     eyeIcons.addEventListener('click', () => {
         if (loginunppa.type === 'password') {
-            loginunppa.type = 'text';  // показываем пароль
-            eyeIcons.src = '/all_pictures/openeye.png'; // можно менять иконку
+            loginunppa.type = 'text'; 
+            eyeIcons.src = '/all_pictures/openeye.png'; 
         } else {
-            loginunppa.type = 'password'; // скрываем пароль
-            eyeIcons.src = '/all_pictures/closeeye.png'; // возвращаем иконку
+            loginunppa.type = 'password'; 
+            eyeIcons.src = '/all_pictures/closeeye.png';
         }
     });
 });
