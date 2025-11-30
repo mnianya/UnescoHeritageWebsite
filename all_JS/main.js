@@ -1,5 +1,5 @@
 window.addEventListener("load", async () =>  {
-        const loader = document.getElementById("svgLoader");
+    const loader = document.getElementById("svgLoader");
     const intro = document.getElementById("intro");
     const flash = document.getElementById("flash");
     const main = document.getElementById("main");
@@ -8,16 +8,13 @@ window.addEventListener("load", async () =>  {
     const now = Date.now();
     const DAY = 24 * 60 * 60 * 1000;
 
-    // ✅ Если уже запускали интро за последние 24 часа
     if (lastPlayed && now - parseInt(lastPlayed) < DAY) {
-        // Показываем loader
         loader.style.display = "flex";
 
         intro.classList.add("hidden");
         flash.classList.add("hidden");
         main.classList.remove("hidden");
 
-        // Эффект исчезновения loader после загрузки
         setTimeout(() => {
             loader.style.opacity = "0";
             setTimeout(() => {
@@ -30,7 +27,6 @@ window.addEventListener("load", async () =>  {
         startSlider();
     }
     else {
-        // ✅ Первый заход → показываем интро, НЕ показываем loader
         loader.style.display = "none";
         intro.classList.remove("hidden");
         main.classList.remove("hidden");
@@ -47,16 +43,13 @@ window.addEventListener("load", async () =>  {
 
             localStorage.setItem("animationPlayedAt", Date.now().toString());
 
-            // ✅ Скрываем интро
             intro.classList.add("hidden");
 
-            // ✅ Показываем main без перезагрузки
             main.style.display = "block";
             requestAnimationFrame(() => {
                 main.style.opacity = "1";
             });
 
-            // ✅ И только после этого стартует слайдер
             startSlider();
         };
     }
@@ -84,11 +77,10 @@ window.addEventListener("load", async () =>  {
         const listContainer = document.getElementById("monumentsList");
         listContainer.innerHTML = "";
 
-        // Получаем список избранных памятников пользователя
         let favorites = [];
         if (userLogin) {
             const favResponse = await fetch(`https://localhost:7156/api/Favorites/user?userLogin=${encodeURIComponent(userLogin)}`);
-            if (favResponse.ok) favorites = await favResponse.json(); // массив имён
+            if (favResponse.ok) favorites = await favResponse.json(); 
         }
 
         if (!monuments || monuments.length === 0) {
@@ -180,7 +172,6 @@ window.addEventListener("load", async () =>  {
             });
         });
 
-        // Навешиваем обработчики на карточки
         document.querySelectorAll(".cardoflist").forEach(card => {
             card.addEventListener("click", () => {
                 const monumentName = card.querySelector(".namecon")?.textContent?.trim();
@@ -192,7 +183,6 @@ window.addEventListener("load", async () =>  {
             });
         });
 
-        // Навешиваем обработчики на сердечки
         document.querySelectorAll(".butcon").forEach(heart => {
             heart.addEventListener("click", async (event) => {
                 event.stopPropagation();
@@ -221,18 +211,15 @@ window.addEventListener("load", async () =>  {
         console.error("Ошибка загрузки памятников дня:", error);
     }
 
-          // Получаем все ссылки меню
       document.querySelectorAll('.item-of-navigation').forEach(link => {
           link.addEventListener('click', (e) => {
 
               const text = link.textContent?.trim();
 
-              // ✅ "Поиск" — не перехватываем, даём перейти по ссылке
               if (text === "Поиск") return;
 
-              e.preventDefault(); // отменяем переход только для внутренних ссылок
+              e.preventDefault(); 
 
-              // Определяем к какой секции скроллить
               let targetSection = null;
 
               if(text === "О наследии") targetSection = document.getElementById('what-is-unesco');
@@ -257,12 +244,10 @@ window.addEventListener("load", async () =>  {
           img.addEventListener('load', () => {
               loadedCount++;
               if (loadedCount === slides.length) {
-                  // Все картинки загружены, показываем слайдер
                   document.querySelector('.slider').classList.add('loaded');
               }
           });
 
-          // На случай, если картинка уже закеширована браузером
           if (img.complete) img.dispatchEvent(new Event('load'));
       });
 
@@ -457,4 +442,5 @@ function startSlider() {
 
   showSlide(0);
   start();
+
 }
