@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/all_CSS/find.css">
+    <link rel="icon" href="/all_pictures/Group-2.ico" type="image/x-icon">
+    <title>Monumentum</title>
+</head>
+<body>
+    <div class="page-wrapper">
+    <section class="main">
+        
+        <section id="header" class="header">
+            <div id="menu" class="menu">
+                <a class="logo" id="logo">
+                    <img src="/all_pictures/logo.png" class="logo-pic">
+                </a>
+
+                <div class="registration">
+                    <a href="/all_HTML/registrationform.html" class="registration">Регистрация</a>
+                </div>
+            </div>
+
+            <div class="backofheader">
+                <div class="back-pic">
+                </div>
+
+                <div class="title">ПОИСК ПАМЯТНИКОВ</div>
+            </div>
+        </section>
+
+        <section class="choose">
+            <div class="country">
+                <img src="/all_pictures/location.png" class="locations" alt="">
+
+                <div class="country_dropdown">
+                    <input type="text" id="countrySearch" placeholder="Введите название" autocomplete="off">
+                    <ul id="countryList" class="dropdown_list hidden"></ul>
+                </div>
+            </div>
+
+            <div class="divider"></div> 
+
+            <div class="category">
+                <img src="/all_pictures/book.png" class="book" alt="">
+                <select name="category" id="category" class="category_items">
+                    <option value="" disabled selected>Выберите категорию</option>
+                    <option value="Культурное наследие">Культурное наследие</option>
+                    <option value="Природное наследие">Природное наследие</option>
+                    <option value="Смешанное наследие">Смешанное наследие</option>
+                    <option value="Археологический объект">Археологический объект</option>
+                    <option value="Архитектурный памятник">Архитектурный памятник</option>
+                    <option value="Историческое здание">Историческое здание</option>
+                    <option value="Религиозный объект">Религиозный объект</option>
+                    <option value="Фортификационное сооружение">Фортификационное сооружение</option>
+                    <option value="Городской ансамбль">Городской ансамбль</option>
+                    <option value="Культурный ландшафт">Культурный ландшафт</option>
+                    <option value="Промышленное наследие">Промышленное наследие</option>
+                    <option value="Памятник искусства">Памятник искусства</option>
+                    <option value="Музей или мемориал">Музей или мемориал</option>
+                    <option value="Современный памятник">Современный памятник</option>
+                    <option value="Античное наследие">Античное наследие</option>
+                </select>
+            </div>
+
+
+            <button class="find">Найти</button>
+        </section>
+
+        <p class="current-filters hidden"></p>
+        <section class="destinations_list">
+            <div id="noResults" class="no-results hidden">
+                Ничего не найдено…
+            </div>
+        </section>
+    </section>
+        <div class="footer-photo">
+            <div class="contentoffoother">
+                <img src="/all_pictures/logo.png" class="logofoothers" alt="">
+                <p class="textfoother">История живёт в людях, местах и природе.</p>
+            </div>
+        </div>
+    </div>
+    <script src="/all_JS/find.js"></script>
+</body>
+</html>

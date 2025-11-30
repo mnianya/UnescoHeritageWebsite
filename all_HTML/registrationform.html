@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/all_CSS/registrationform.css">
+    <link rel="icon" href="/all_pictures/Group-2.ico" type="image/x-icon">
+    <script src="/all_JS/regisauto.js"></script>
+    <title>Monumentum</title>
+</head>
+<body>
+    <section class="image-section">
+        <div class="photo one">
+            <div class="pin"></div>
+            <img src="/all_pictures/polaroid 1.png" alt="Фото 1" class="images">
+        </div>
+        <div class="photo two">
+            <div class="pin"></div>
+            <img src="/all_pictures/polaroid 2.png" alt="Фото 2" class="images">
+        </div>
+        <div class="photo three">
+            <div class="pin"></div>
+            <img src="/all_pictures/polaroid 3.png" alt="Фото 3" class="images">
+        </div>
+    </section>
+
+    <section class="input-section regist">
+        <div class="content-of-input-section">
+            <p class="hame-of-form">Создание аккаунта</p>
+
+            <div class="all-inputs">
+
+                <div class="inputs-group">
+                    <p class="input-name">Логин:</p>
+                    <input type="text" class="input-look" id="regLogin" placeholder="Создайте логин" autocomplete="off">
+                </div>
+
+                <div class="inputs-group">
+                    <p class="input-name">Электронная почта:</p>
+                    <input type="text" class="input-look" id="regEmail" placeholder="Введите электронную почту" autocomplete="off">
+                </div>
+
+                <div class="inputs-group">
+                    <p class="input-name">Пароль:</p>
+                    <input type="password" class="input-look password" id="regPassword" placeholder="Создайте пароль" autocomplete="off">
+                    <img src="/all_pictures/closeeye.png" class="eye">
+                </div>
+            </div>
+
+            <button class="submit-button">
+                <p class="submit-button-text">Создать аккаунт</p>
+            </button>
+
+            <div class="link-to-another-form"> 
+                <p class="text-to-link">Уже есть аккаунт?</p> 
+                <a href="" class="transition-to-link">Вход в аккаунт</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="input-section hidden">
+        <div class="content-of-input-section">
+            <p class="hame-of-form">Вход в аккаунт</p>
+
+            <div class="all-inputs">
+                <div class="inputs-group">
+                    <p class="input-name">Логин:</p>
+                    <input type="text" class="input-look" id="loginLogin" placeholder="Введите логин" autocomplete="off">
+                </div>
+
+                <div class="inputs-group">
+                    <p class="input-name">Пароль:</p>
+                    <input type="password" class="input-look" id="loginPassword" placeholder="Введите пароль" autocomplete="off">
+                    <img src="/all_pictures/closeeye.png" class="eyes">
+                </div>
+            </div>
+
+            <button class="submit-button">
+                <p class="submit-button-text">Вход в аккаунт</p>
+            </button>
+
+            <div class="link-to-another-form"> 
+                <p class="text-to-link">Еще нет аккаунта?</p> 
+                <a href="" class="transition-to-link">Создать аккаунт</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

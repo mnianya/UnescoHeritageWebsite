@@ -1,0 +1,480 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.main{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    height: 600px;
+     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.menu{
+    margin: 30px auto 0 auto;
+    width: 1200px;
+    height: 23px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    z-index: 100;
+}
+
+.logo{
+    width: 137px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.logo-pic{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation{
+    width: 700px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.registration {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    text-decoration: none;
+    position: relative;      
+    padding-bottom: 3px;     
+    cursor: pointer;         
+}
+
+.registration::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.registration:hover::after {
+    width: 100%;
+}
+
+.backofheader{
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.back-pic {
+    width: 100%;
+    height: 600px; 
+    background-image: url("/all_pictures/fingfoo.jpg");
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.title{
+    position: absolute; 
+    top: 45%;          
+    left: 50%;          
+    transform: translate(-50%, -50%);
+    z-index: 2;         
+    font-family: 'Geologica', sans-serif;
+    font-size: 60px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    pointer-events: none;
+}
+
+.choose{
+    width: 817px;
+    height: 103px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    z-index: 100;
+     box-shadow: 0 0px 35px rgba(0, 0, 0, 0.3);
+     margin-top: -52px;
+}
+
+.country{
+    width: 248px;
+    height: 41px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.locations{
+    width: 24px;
+    height: 24px;
+}
+
+.category{
+    width: 248px;
+    height: 41px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.category_items {
+    color: #999;
+    width: 210px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.category_dropdown {
+    position: relative;
+    width: 210px;
+}
+
+.category_dropdown ul {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 6px;
+    margin-top: 2px;
+    z-index: 50;
+}
+
+.book{
+    width: 24px;
+    height: 24px;
+}
+
+.find {
+    height: 56px;
+    width: 157px;
+    background-color: #89ADDD;
+    color: white;
+    border-radius: 48px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.find:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.country_dropdown {
+    position: relative;
+    width: 210px;
+}
+
+#countrySearch {
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 15px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    color: #999;
+}
+
+#countrySearch:focus {
+    border: 0.2Spx;
+    border-radius: 12px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.dropdown_list {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 2px;
+    z-index: 50;
+}
+
+.dropdown_list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown_list li:hover {
+    background: #eee;
+}
+
+.hidden {
+    display: none;
+}
+
+#countrySearch::placeholder {
+    color: #999; 
+    opacity: 1;
+}
+
+.category_items {
+    color: #999; 
+    font-size: 15px; 
+}
+
+.category_items.selected {
+    color: #000; 
+}
+
+.locations {
+    margin-left: 10px; 
+}
+
+.book {
+    margin-left: 10px; 
+}
+
+.divider {
+    width: 1px; 
+    background-color: #ccc; 
+    height: 25px; 
+    align-self: center; 
+}
+
+.destinations_list{
+    width: 1102px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+      column-gap: auto; 
+    row-gap: 70px; 
+    justify-items: center; 
+    margin-top: 100px;
+}
+
+.cardoflist {
+  width: 314px;
+  height: 359px;
+  background-color: #969696;
+  border-radius: 26px;
+  background-image: url('/all_pictures/pic.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.cardoflist:hover {
+  box-shadow: 0 0px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contentofcard {
+  width: 243px;
+  height: 113px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: -40px;
+  left:120px;
+  transform: translateX(-50%);
+  border-radius: 0 26px 0 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.cardoflist:hover .contentofcard {
+  opacity: 1;
+  bottom: 0px;
+}
+
+.but {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-image: url('/all_pictures/but_heart.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  transform: translateY(-15px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.butcon{
+  width: 24px;
+  height: 24px;
+}
+
+.cardoflist:hover .but {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.names {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.citycon {
+  font-family: 'Geologica', sans-serif;
+  font-size: 12px;
+  color: #969696;
+  font-weight: 100;
+}
+
+.namecon {
+  font-family: 'Geologica', sans-serif;
+  font-size: 20px;
+  color: black;
+  font-weight: 300;
+  width: 214px;
+  margin-top: 10px;
+}
+
+.footer-photo{
+  width: 100%;
+  height: 206px;
+  background-size: cover;
+  background-position: center;
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-mask-image: url('/all_pictures/findhead.png');
+  mask-image: url('/all_pictures/findhead.png');
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: top;
+  margin-top: 300px;
+}
+
+.contentoffoother{
+  width: 1207px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.logofoothers{
+  height: auto;
+}
+
+.textfoother{
+  font-family: 'Geologica', sans-serif;
+  font-size: 15px;
+  color: white;
+  font-weight: 100;
+}
+
+.current-filters {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px auto;
+    text-align: center;
+    color: #333;
+}
+.hidden {
+    display: none;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #555; 
+    margin-top: 40px;
+    display: none;
+}
+
+.no-results.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.empty-collection-message{
+     font-family: 'Geologica', sans-serif;
+  font-size: 20px;
+  color: rgb(159, 0, 0);
+  font-weight: 300;
+  margin-left: 460px;
+  width: fit-content;
+  height: 20px;
+  white-space: nowrap;
+
+}
+
+.current-filters{
+     font-family: 'Geologica', sans-serif;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  font-weight: 100;
+  white-space: nowrap;
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/all_CSS/admin.css">
+    <link rel="icon" href="/all_pictures/Group-2.ico" type="image/x-icon">
+    <title>Monumentum</title>
+</head>
+<body>
+    <section class="mains">
+        <section id="header" class="header">
+            <div class="navigation" id="navigation">
+                <a href="" class="item-of-navigation">Добавить памятник</a>
+                <a href="" class="item-of-navigation">Изменить памятник</a>
+                <a href="" class="item-of-navigation">Создать коллекцию дня</a>
+                <a href="" class="item-of-navigation">Удалить коллекцию дня</a>
+                <a href="" class="item-of-navigation">Управление отзывами</a>
+            </div>
+
+            <div class="backofheader">
+                <div class="back-pic">
+                </div>
+
+                <div class="title">АДМИНИСТРАТОР</div>
+            </div>
+        </section>
+
+        <section class="add_dest">
+            <div class="headers">
+                <p class="mainhead">Добавить памятник</p>
+                <p class="secondhead">Расскажите о памятнике, который стоит помнить</p>
+            </div>
+
+            <div class="inputs">
+                <div class="firstiputs">
+                    <div class="nameofdestin">
+                        <p class="nameofinput">Название памятника:</p>
+                        <input type="text" class="name" placeholder="Введите название памятника">
+                    </div>
+
+                    <div class="country_dropdown">
+                         <p class="nameofinput">Страна:</p>
+                        <input type="text" id="countrySearch" placeholder="Введите страну" autocomplete="off">
+                        <ul id="countryList" class="dropdown_list hidden"></ul>
+                    </div>
+
+                    <div class="cityofdestin">
+                        <p class="nameofinput">Город:</p>
+                        <input type="text" class="city" placeholder="Введите город">
+                    </div>
+                </div>
+
+                <div class="secondinputs">
+                    <div class="categoryofdest">
+                        <p class="nameofinput">Категория</p>
+                        <select name="category" id="category" class="category_items">
+                            <option value="" disabled selected>Выберите категорию</option>
+                            <option value="Культурное наследие">Культурное наследие</option>
+                            <option value="Природное наследие">Природное наследие</option>
+                            <option value="Смешанное наследие">Смешанное наследие</option>
+                            <option value="Археологический объект">Археологический объект</option>
+                            <option value="Архитектурный памятник">Архитектурный памятник</option>
+                            <option value="Историческое здание">Историческое здание</option>
+                            <option value="Религиозный объект">Религиозный объект</option>
+                            <option value="Фортификационное сооружение">Фортификационное сооружение</option>
+                            <option value="Городской ансамбль">Городской ансамбль</option>
+                            <option value="Культурный ландшафт">Культурный ландшафт</option>
+                            <option value="Промышленное наследие">Промышленное наследие</option>
+                            <option value="Памятник искусства">Памятник искусства</option>
+                            <option value="Музей или мемориал">Музей или мемориал</option>
+                            <option value="Современный памятник">Современный памятник</option>
+                            <option value="Античное наследие">Античное наследие</option>
+                        </select>
+                    </div>
+
+                    <div class="linkofdestin">
+                        <p class="nameofinput">Ссылка на UNESCO:</p>
+                        <input type="text" class="link" placeholder="Введите ссылку">
+                    </div>
+                </div>
+
+                <div class="thirdinputs">
+                    <div class="descripofdestin">
+                        <p class="nameofinput">Краткое описание:</p>
+                        <textarea type="text" class="descrip" placeholder="Введите краткое описание"></textarea>
+                    </div>
+
+                    <div class="recomenofdestin">
+                        <p class="nameofinput">Рекомендации к посещению:</p>
+                        <textarea type="text" class="recomendation" placeholder="Введите рекомендации к посещению"></textarea>
+                    </div>
+                </div>
+
+                <div class="historyofdestin">
+                    <p class="nameofinput">Описание памятника:</p>
+                    <textarea type="text" class="history" placeholder="Введите информацию о памятнике"></textarea>
+                </div>
+
+                <div class="photos">
+                    <p class="nameofinput">Фотографии:</p>
+
+                    <div class="imagesall"></div>
+                     <input type="file" id="uploadPhotos" accept="image/*" multiple hidden>
+                    <button class="addphotos">Добавьте фотографии</button>
+                </div>
+            </div>
+
+            <button class="save">Добавить памятник</button>
+        </section>
+
+        <section class="change_dest">
+            <div class="headers">
+                <p class="mainhead">Изменить памятник</p>
+                <p class="secondhead">Исправьте или дополните сведения о памятнике</p>
+            </div>
+
+            <div class="finddest">
+                <input type="text" class="chosedest" placeholder="Введите название памятника" id="monumentSearch">
+                <ul id="monumentList" class="dropdown_list_name hidden"></ul>
+                <img src="/all_pictures/Search.png" alt="" class="fingicon">
+            </div>
+
+            <div class="inputs">
+                <div class="firstiputs">
+                    <div class="nameofdestin">
+                        <p class="nameofinput">Название памятника:</p>
+                        <input type="text" id="name" class="name" placeholder="Введите название памятника">
+                    </div>
+
+                    <div class="country_dropdown">
+                         <p class="nameofinput">Страна:</p>
+                        <input type="text" id="countrySearchs" placeholder="Введите страну" autocomplete="off">
+                        <ul id="countryList" id="country" class="dropdown_list hidden"></ul>
+                    </div>
+
+                    <div class="cityofdestin">
+                        <p class="nameofinput">Город:</p>
+                        <input type="text" id="city" class="city" placeholder="Введите город">
+                    </div>
+                </div>
+
+                <div class="secondinputs">
+                    <div class="categoryofdest">
+                        <p class="nameofinput">Категория</p>
+                        <select name="category" id="categorys" class="category_items">
+                            <option value="" disabled selected>Выберите категорию</option>
+                            <option value="Культурное наследие">Культурное наследие</option>
+                            <option value="Природное наследие">Природное наследие</option>
+                            <option value="Смешанное наследие">Смешанное наследие</option>
+                            <option value="Археологический объект">Археологический объект</option>
+                            <option value="Архитектурный памятник">Архитектурный памятник</option>
+                            <option value="Историческое здание">Историческое здание</option>
+                            <option value="Религиозный объект">Религиозный объект</option>
+                            <option value="Фортификационное сооружение">Фортификационное сооружение</option>
+                            <option value="Городской ансамбль">Городской ансамбль</option>
+                            <option value="Культурный ландшафт">Культурный ландшафт</option>
+                            <option value="Промышленное наследие">Промышленное наследие</option>
+                            <option value="Памятник искусства">Памятник искусства</option>
+                            <option value="Музей или мемориал">Музей или мемориал</option>
+                            <option value="Современный памятник">Современный памятник</option>
+                            <option value="Античное наследие">Античное наследие</option>
+                        </select>
+                    </div>
+
+                    <div class="linkofdestin">
+                        <p class="nameofinput">Ссылка на UNESCO:</p>
+                        <input type="text" class="link" id="link" placeholder="Введите ссылку">
+                    </div>
+                </div>
+
+                <div class="thirdinputs">
+                    <div class="descripofdestin">
+                        <p class="nameofinput">Краткое описание:</p>
+                        <textarea type="text" id="desc" class="descrip" placeholder="Введите краткое описание"></textarea>
+                    </div>
+
+                    <div class="recomenofdestin">
+                        <p class="nameofinput">Рекомендации к посещению:</p>
+                        <textarea type="text" id="recom" class="recomendation" placeholder="Введите рекомендации к посещению"></textarea>
+                    </div>
+                </div>
+
+                <div class="historyofdestin">
+                    <p class="nameofinput">Описание памятника:</p>
+                    <textarea type="text" id="hist" class="history" placeholder="Введите информацию о памятнике"></textarea>
+                </div>
+
+                <div class="photos">
+                    <p class="nameofinput">Фотографии:</p>
+
+                    <div class="imagesall" id="imageshere"></div>
+                     <input type="file" id="uploadPhotos" accept="image/*" multiple hidden>
+                    <button class="addphotos">Добавьте фотографии</button>
+                </div>
+            </div>
+
+            <button class="saves">Сохранить изменения</button>
+        </section>
+
+        <section class="add_collec">
+            <div class="headers">
+                <p class="mainhead">Добавить коллекцию дня</p>
+                <p class="secondhead">Соберите памятники в коллекцию дня</p>
+            </div>
+
+            <div class="allinputshere">
+                <div class="firstpart">
+                    <div class="itemofdestin">
+                        <p class="nameofinput" >Памятник 1:</p>
+                        <input type="text" id="monument1" class="item" placeholder="Введите название памятника">
+                        <ul id="dropdown1" class="dropdown_list_smth hidden"></ul>
+                    </div>
+
+                    <div class="itemofdestin">
+                        <p class="nameofinput">Памятник 2:</p>
+                        <input type="text" id="monument2" class="item" placeholder="Введите название памятника">
+                        <ul id="dropdown2" class="dropdown_list_smth hidden"></ul>
+                    </div>
+
+                    <div class="itemofdestin">
+                        <p class="nameofinput">Памятник 3:</p>
+                        <input type="text" id="monument3" class="item" placeholder="Введите название памятника">
+                        <ul id="dropdown3" class="dropdown_list_smth hidden"></ul>
+                    </div>
+                </div>
+
+                <div class="secondpart">
+                    <div class="datafdestin">
+                        <p class="nameofinput">Дата</p>
+                        <input type="date" class="data">
+                    </div>
+
+                    <button class="saveall">Создать коллекцию</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="removecolle">
+            <div class="headers">
+                <p class="mainhead">Удалить коллекцию дня</p>
+                <p class="secondhead">Удалите устаревшую коллекцию дня</p>
+            </div>
+
+            <table class="collectremove">
+                <tr>
+                    <td>Памятник 1</td>
+                    <td>Памятник 2</td>
+                    <td>Памятник 3</td>
+                    <td>Дата</td>
+                </tr>
+
+                <tr><td> </td><td> </td><td> </td><td> </td></tr>
+                <tr><td> </td><td> </td><td> </td><td> </td></tr>
+                <tr><td> </td><td> </td><td> </td><td> </td></tr>
+                <tr><td> </td><td> </td><td> </td><td> </td></tr>
+
+            </table>
+
+            <button class="remove">Удалить коллекцию</button>
+        </section>
+
+        <section class="rewirs">
+            <div class="headers">
+                <p class="mainhead">Управление отзывами</p>
+                <p class="secondhead">Просматривайте, редактируйте и удаляйте отзывы пользователей</p>
+            </div>
+
+            <table class="rewiesremove">
+                <tr>
+                    <td>Пользователь</td>
+                    <td>Рейтенг</td>
+                    <td>Название памятника</td>
+                    <td>Комментарий</td>
+                    <td>Фото</td>
+                    <td>Дата публикации</td>
+                </tr>
+
+                <tr><td> </td><td> </td><td> </td><td> </td> <td> </td> <td> </td></tr> 
+                <tr><td> </td><td> </td><td> </td><td> </td> <td> </td> <td> </td></tr>
+                <tr><td> </td><td> </td><td> </td><td> </td> <td> </td> <td> </td></tr> 
+                <tr><td> </td><td> </td><td> </td><td> </td> <td> </td> <td> </td></tr> 
+            </table>
+
+            <button class="remove_rew">Удалить отзыв</button>
+        </section>
+
+        <button class="exit">Выйти из аккаунта</button>
+
+        <div class="footer-photo">
+            <div class="contentoffoother">
+                <img src="/all_pictures/logo.png" class="logofoothers" alt="">
+                <p class="textfoother">История живёт в людях, местах и природе.</p>
+            </div>
+       </div>
+    </section>
+
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+    
+    <script src="/all_JS/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/all_CSS/main.css">
+    <link rel="icon" href="/all_pictures/Group-2.ico" type="image/x-icon">
+    <title>Monumentum</title>
+</head>
+<body>
+    <div id="svgLoader" style="display:none;justify-content:center;align-items:center;height:100vh;position:fixed;top:0;left:0;width:100%;background:white;z-index:9999;">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="top-line" d="M0 0.75H24" stroke="black" stroke-width="1.5"/>
+
+            <path class="bar bar-1" d="M7.60715 8.05762C7.60715 7.6434 7.27136 7.30762 6.85715 7.30762C6.44293 7.30762 6.10715 7.6434 6.10715 8.05762H6.85715H7.60715ZM6.85715 8.05762H6.10715V23.75H6.85715H7.60715V8.05762H6.85715Z" fill="black"/>
+            <path class="bar bar-2" d="M11.0357 8.05762C11.0357 7.6434 10.6999 7.30762 10.2857 7.30762C9.87149 7.30762 9.53571 7.6434 9.53571 8.05762H10.2857H11.0357ZM10.2857 8.05762H9.53571V23.75H10.2857H11.0357V8.05762H10.2857Z" fill="black"/>
+            <path class="bar bar-3" d="M14.4643 8.05762C14.4643 7.6434 14.1285 7.30762 13.7143 7.30762C13.3001 7.30762 12.9643 7.6434 12.9643 8.05762H13.7143H14.4643ZM13.7143 8.05762H12.9643V23.75H13.7143H14.4643V8.05762H13.7143Z" fill="black"/>
+            <path class="bar bar-4" d="M17.8929 8.05762C17.8929 7.6434 17.5571 7.30762 17.1429 7.30762C16.7286 7.30762 16.3929 7.6434 16.3929 8.05762H17.1429H17.8929ZM17.1429 8.05762H16.3929V23.75H17.1429H17.8929V8.05762H17.1429Z" fill="black"/>
+
+            <line class="middle-line" x1="2.67856" y1="4.28857" x2="21.3214" y2="4.28857" 
+                    stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+            <path class="left-vert"
+                d="M2.67856 7.82704 V4.28857"
+                stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+
+            <path class="right-vert"
+                d="M21.3214 4.28857 V7.82704"
+                stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <section id="intro" class="screen active" style="display: none;">
+        <div id="typed-text" class="typed-text"></div>
+    </section>
+
+    <section id="flash" class="screen hidden" style="display: none;">
+        <div id="flash-container"></div>
+        <div id="type-text">И сегодня все это называется наследием</div>
+    </section>
+
+    <section id="main" class="main hidden" style="display:none; opacity:0;">
+       
+        <section id="header" class="header">
+            
+            <div id="menu" class="menu">
+                <a class="logo" id="logo">
+                    <img src="/all_pictures/logo.png" class="logo-pic">
+                </a>
+
+                <div class="navigation" id="navigation">
+                    <a href="" class="item-of-navigation">О наследии</a>
+                    <a href="" class="item-of-navigation">Карта объектов</a>
+                    <a href="" class="item-of-navigation">Памятники дня</a>
+                    <a href="" class="item-of-navigation">Ваш след</a>
+                    <a href="/all_HTML/find.html" class="item-of-navigation">Поиск</a>
+                </div>
+
+                <div class="registration">
+                    <a href="/all_HTML/registrationform.html" class="registration">Регистрация</a>
+                </div>
+            </div>
+
+            <div class="slider">
+                <div class="back-layer">
+                    <img src="/all_pictures/china-back.jpg" class="bg active">
+                    <img src="/all_pictures/machu-back.jpg" class="bg">
+                    <img src="/all_pictures/petra-back.jpg" class="bg">
+                </div>
+
+                <div class="title">ЮНЕСКО</div>
+
+                <div class="front-layer">
+                    <img src="/all_pictures/china-front.png" class="overlay active">
+                    <img src="/all_pictures/machu-front.png" class="overlay">
+                    <img src="/all_pictures/petra-front.png" class="overlay">
+                </div>
+            </div>
+
+            <div class="list-of-dots" id="list-of-dots">
+                <div class="dot active" id="dot"></div>
+                <div class="dot" id="dot"></div>
+                <div class="dot" id="dot"></div>
+            </div>
+
+        </section>
+
+        <section class="what-is-unesco" id="what-is-unesco">
+            <div class="image-paper">
+                <img src="/all_pictures/paper.png" alt="" class="paper">
+            </div>
+
+            <div class="content-unesco">
+                <img src="/all_pictures/Logo_UNESCO.png" alt="" class="logo-unesco">
+
+                <p class="text-unesco">ЮНЕСКО — международная организация, созданная для защиты культурных и природных сокровищ мира. Её цель — сохранять уникальные места и традиции. Это важно, чтобы память о них не исчезла со временем.</p>
+            </div>
+        </section>
+
+
+        <section class="mapofdestin">
+            <div class="heaaders">
+                <p class="firsthead">Карта объектов</p>
+                <p class="secondhead">Просматривайте информацию о любом объекте на карте</p>
+            </div>
+
+            <iframe id="mapFrame" src="/all_HTML/fghj.html" title="Map frame"></iframe>
+        </section>
+
+        <section class="monofday">
+            <div class="heaaders">
+                <p class="firsthead">Памятники дня</p>
+                <p class="secondhead">Откройте сегодняшний памятник и узнайте его историю</p>
+            </div>
+
+            <div class="listofmon" id="monumentsList">
+                <div class="cardoflist">
+                    <div class="contentofcard">
+                        <div class="names">
+                            <p class="citycon">Нью Йорк</p>
+                            <p class="namecon">Статуя Свободы</p>
+                        </div>
+                    </div>
+
+                    <div class="but">
+                        <img src="/all_pictures/heart.png" alt="" class="butcon">
+                    </div>
+                </div>
+
+                <div class="cardoflist">
+                    <div class="contentofcard">
+                        <div class="names">
+                            <p class="citycon">Нью Йорк</p>
+                            <p class="namecon">Статуя Свободы</p>
+                        </div>
+                    </div>
+
+                    <div class="but">
+                        <img src="/all_pictures/heart.png" alt="" class="butcon">
+                    </div>
+                </div>
+
+                <div class="cardoflist">
+                    <div class="contentofcard">
+                        <div class="names">
+                            <p class="citycon">Нью Йорк</p>
+                            <p class="namecon">Статуя Свободы</p>
+                        </div>
+                    </div>
+
+                    <div class="but">
+                        <img src="/all_pictures/heart.png" alt="" class="butcon">
+                    </div>
+                </div>
+        </section>
+
+        <section class="rewies">
+            <div class="heaaders">
+                <p class="firsthead">Ваш след</p>
+                <p class="secondhead">Посмотрите, что думают другие о памятниках</p>
+            </div>
+
+            <div class="listofrevies">
+                <div class="tipofrew">
+                    <div class="imgoftip">
+                        <img src="/all_pictures/pic_rewis.png" class="imgofrewis" alt="">
+                    </div>
+
+                    <div class="contentofrew">
+                        <div class="conetnt-width">
+                            <a class="linktodest">Петра</a>
+                            <p class="textofrew">Мне все очень понравилось, очень красивое место, невероятной красоты</p>
+                        
+                            <div class="authorandstars">
+                                <div class="infoofperson">
+                                    <div class="photoofperson"></div>
+                                    <p class="loginogperson">Елена</p>
+                                </div>
+
+                                <div class="reiting">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tipofrew">
+                    <div class="imgoftip">
+                        <img src="/all_pictures/pic_rewis.png" class="imgofrewis" alt="">
+                    </div>
+
+                    <div class="contentofrew">
+                        <div class="conetnt-width">
+                            <a class="linktodest">Петра</a>
+                            <p class="textofrew">Мне все очень понравилось, очень красивое место, невероятной красоты</p>
+                        
+                            <div class="authorandstars">
+                                <div class="infoofperson">
+                                    <div class="photoofperson"></div>
+                                    <p class="loginogperson">Елена</p>
+                                </div>
+
+                                <div class="reiting">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tipofrew">
+                    <div class="imgoftip">
+                        <img src="/all_pictures/pic_rewis.png" class="imgofrewis" alt="">
+                    </div>
+                    <div class="contentofrew">
+                        <div class="conetnt-width">
+                            <a class="linktodest">Петра</a>
+                            <p class="textofrew">Мне все очень понравилось, очень красивое место, невероятной красоты</p>
+                        
+                            <div class="authorandstars">
+                                <div class="infoofperson">
+                                    <div class="photoofperson"></div>
+                                    <p class="loginogperson">Елена</p>
+                                </div>
+
+                                <div class="reiting">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                    <img src="/all_pictures/star.svg" class="star" alt="звезда">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-photo">
+            <div class="contentoffoother">
+                <img src="/all_pictures/logo.png" class="logofoothers" alt="">
+                <p class="textfoother">История живёт в людях, местах и природе.</p>
+            </div>
+        </div>
+    </section>
+    <script src="/all_JS/main.js"></script>
+
+    <script>
+        const info = document.getElementById('info');
+
+        window.addEventListener('message', (ev) => {
+            if (!ev.data || ev.data.type !== 'select') return;
+
+            const name = ev.data.name;
+
+            // ✅ cookie на всю область сайта, 7 дней
+            const expires = new Date(Date.now() + 7*24*60*60*1000).toUTCString();
+            document.cookie = 'selectedMonument=' + encodeURIComponent(name)
+                + '; path=/; expires=' + expires + '; SameSite=Lax';
+
+            // ✅ Переход на полноэкранную страницу
+            window.location.href = '/all_HTML/destination.html';
+        });
+    </script>
+</body>
+</html>

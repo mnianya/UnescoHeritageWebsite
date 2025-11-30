@@ -1,0 +1,717 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.screen{
+    width: 100%;
+    height: 810px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.typed-text{
+    width: 939px;
+    height: 268px;
+    font-family: 'Betmo', sans-serif;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#type-text {
+  font-family: 'Betmo', sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  z-index: 1100; 
+  display: none;
+}
+
+#flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  color: white;
+  align-items: center;
+  font-size: 50px;
+}
+
+#flash-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#flash-container img {
+  position: absolute;
+  width: 250px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.main{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 810px;
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 810px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}
+
+.back-layer,
+.front-layer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+  will-change: transform;
+}
+
+.back-layer .bg,
+.front-layer .overlay {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.back-layer { z-index: 1; position: absolute; top:0; left:0; }
+.front-layer { z-index: 3; position: absolute; top:0; left:0; pointer-events: none; }
+
+.menu{
+    margin: 30px auto 0 auto;
+    width: 1200px;
+    height: 23px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    z-index: 2;
+}
+
+.logo{
+    width: 137px;
+    height: 100%;
+}
+
+.logo-pic{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation{
+    width: 520px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-of-navigation {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    text-decoration: none;
+    position: relative; 
+    display: inline-block; 
+    padding-bottom: 3px; 
+    cursor: pointer; 
+}
+
+a.item-of-navigation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+}
+
+a.item-of-navigation:hover::after {
+    width: 100%;  
+}
+
+
+.registration {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    text-decoration: none;
+    position: relative;       
+    padding-bottom: 3px;   
+    cursor: pointer;        
+}
+
+.registration::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.registration:hover::after {
+    width: 100%;
+}
+
+.title{
+    position: absolute; 
+    top: 45%;          
+    left: 50%;          
+    transform: translate(-50%, -50%);
+    z-index: 2;         
+    font-family: 'Geologica', sans-serif;
+    font-size: 220px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    pointer-events: none;
+}
+
+.list-of-dots{
+    margin: 0 auto 100px auto;
+    width: 68px;
+    height: 9px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+}
+
+.dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 9px;
+    background-color: white;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    -webkit-transition: transform 0.3s ease, background-color 0.3s ease;
+    -moz-transition: transform 0.3s ease, background-color 0.3s ease;
+    -ms-transition: transform 0.3s ease, background-color 0.3s ease;
+    -o-transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+.what-is-unesco{
+  width: 100%;
+  height: 608px;
+  position: absolute;
+  top: 730px;
+  z-index: 2000;
+}
+
+.image-paper{
+  width: 100%;
+  height: 608px;
+  position: relative;
+}
+
+.paper{
+  width: 100%;
+  height: 608px;
+}
+
+.content-unesco{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 476px;
+  height: 220px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-unesco{
+  width: 130px;
+  height: 130px;
+}
+
+.text-unesco{
+  width: 100%;
+  height: 84px;
+  font-family: 'Geologica', sans-serif;
+  font-size: 16px;
+  color: black;
+  font-weight: 200;
+  text-align: center;
+}
+
+.mapofdestin{
+  width: 100%;
+  height: 562px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 662px;
+}
+
+.heaaders{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.firsthead{
+  font-family: 'Geologica', sans-serif;
+  font-size: 29px;
+  color: black;
+  font-weight: 300;
+  width: fit-content;
+}
+
+.secondhead{
+  font-family: 'Geologica', sans-serif;
+  font-size: 16px;
+  color: #969696;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+iframe { width: 920px; height: 450px; border: 3px solid #89ADDD; }
+
+.monofday{
+  width: 100%;
+  height: 470px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listofmon{
+  width: 1042px;
+  height: 359px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardoflist {
+  width: 314px;
+  height: 359px;
+  background-color: #969696;
+  border-radius: 26px;
+  background-image: url('/all_pictures/pic.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.cardoflist:hover {
+  box-shadow: 0 0px 35px rgba(0, 0, 0, 0.1);
+}
+
+.contentofcard {
+  width: 243px;
+  height: 113px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: -40px; 
+  left:120px;
+  transform: translateX(-50%);
+  border-radius: 0 26px 0 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.cardoflist:hover .contentofcard {
+  opacity: 1;
+  bottom: 0px;
+}
+
+.but {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-image: url('/all_pictures/but_heart.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  transform: translateY(-15px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.butcon{
+  width: 24px;
+  height: 24px;
+}
+
+.cardoflist:hover .but {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.names {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.citycon {
+  font-family: 'Geologica', sans-serif;
+  font-size: 12px;
+  color: #969696;
+  font-weight: 100;
+}
+
+.namecon {
+  font-family: 'Geologica', sans-serif;
+  font-size: 20px;
+  color: black;
+  font-weight: 300;
+  width: 214px;
+  margin-top: 10px;
+}
+
+.rewies{
+  width: 100%;
+  height: 497px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 120px;
+}
+
+.listofrevies{
+  width: 1042px;
+  height: 396px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tipofrew{
+  width: 314px;
+  height: 376px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  transition: transform 0.4s ease;
+  -webkit-transition: transform 0.4s ease;
+  -moz-transition: transform 0.4s ease;
+  -ms-transition: transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+}
+
+.tipofrew:hover {
+  transform: translateY(-10px);
+}
+
+.imgoftip{
+  width: 148px;
+  height: 148px;
+  border-radius: 148px;
+  -webkit-border-radius: 148px;
+  -moz-border-radius: 148px;
+  -ms-border-radius: 148px;
+  -o-border-radius: 148px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 28%;
+  top: 0%;
+  overflow: hidden; 
+}
+
+.imgofrewis{
+  width: 148px;
+  height: 148px;
+  object-fit: cover
+}
+
+.contentofrew{
+  width: 100%;
+  height: 302px;
+  border-radius: 26px;
+  background-color: white;
+  box-shadow: 0 0px 35px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.linktodest{
+  font-family: 'Geologica', sans-serif;
+  font-size: 18px;
+  color: #89ADDD;
+  font-weight: 100;
+  width: 176px;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.textofrew{
+  font-family: 'Geologica', sans-serif;
+  font-size: 16px;
+  color: black;
+  font-weight: 100;
+  width: 226px;
+  text-align: center;
+   display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conetnt-width{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 187px;
+  margin-bottom: 25px;
+}
+
+.authorandstars{
+  width: 241px;
+  height: 41px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoofperson{
+  width: 104px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.photoofperson{
+  width: 41px;
+  height: 41px;
+  border-radius: 41px;
+  -webkit-border-radius: 41px;
+  -moz-border-radius: 41px;
+  -ms-border-radius: 41px;
+  -o-border-radius: 41px;
+  background-color: gray;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.loginogperson{
+  font-family: 'Geologica', sans-serif;
+  font-size: 13px;
+  color: black;
+  font-weight: 100;
+  text-align: center;
+  width: 53px;
+}
+
+.reiting{
+  width: 115px;
+  height: 19px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.star {
+  width: 17px;
+  height: 17px;
+  filter: grayscale(100%) brightness(1.2); 
+}
+
+.empty-collection-message {
+    text-align: center;
+    opacity: 0.7;
+    margin-top: 40px;
+    margin-left: 420px;
+    font-family: 'Geologica', sans-serif;
+  font-size: 20px;
+  color: black;
+  font-weight: 100;
+}
+
+.star.active {
+  filter: none; 
+}
+
+
+.footer-photo{
+  width: 100%;
+  height: 206px;
+  background-size: cover;
+  background-position: center;
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-mask-image: url('/all_pictures/foother.png');
+  mask-image: url('/all_pictures/foother.png');
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: top;
+  margin-top: 200px;
+}
+
+.contentoffoother{
+  width: 1207px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.logofoothers{
+  height: auto;
+}
+
+.textfoother{
+  font-family: 'Geologica', sans-serif;
+  font-size: 15px;
+  color: white;
+  font-weight: 100;
+}
+
+.top-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawLineTop .15s ease-out forwards;
+}
+
+.left-vert, .right-vert {
+  transform: scaleY(0);
+}
+
+.left-vert {
+  transform-origin: bottom;
+  animation: growLeft .18s ease-out forwards;
+  animation-delay: .15s;
+}
+
+.middle-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawMiddle .18s ease-out forwards;
+  animation-delay: .25s;
+}
+
+.right-vert {
+  transform-origin: top;
+  animation: growRight .18s ease-out forwards;
+  animation-delay: .4s;
+}
+
+.bar {
+  transform: scaleY(0);
+  opacity: 0;
+  transform-origin: top;
+  animation: grow-bar .12s ease-out forwards;
+  -webkit-animation: grow-bar .12s ease-out forwards;
+}
+
+.bar-1 { animation-delay: .55s; }
+.bar-2 { animation-delay: .6s; }
+.bar-3 { animation-delay: .65s; }
+.bar-4 { animation-delay: .7s; }
+
+@keyframes grow-bar { to { opacity:1; transform:scaleY(1); } }
+@keyframes drawLineTop { to { stroke-dashoffset: 0; } }
+@keyframes growLeft { to { transform:scaleY(1); } }
+@keyframes drawMiddle { to { stroke-dashoffset: 0; } }
+@keyframes growRight { to { transform:scaleY(1); } }

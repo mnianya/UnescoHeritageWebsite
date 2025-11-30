@@ -1,0 +1,852 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.main{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.header{
+    width: 100%;
+    height: 810px;
+     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.menu{
+    margin: 30px auto 0 auto;
+    width: 1200px;
+    height: 23px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    z-index: 100;
+}
+
+.logo{
+    width: 137px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.logo-pic{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation{
+    width: 700px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-of-navigation {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    text-decoration: none;
+    position: relative; 
+    display: inline-block; 
+    padding-bottom: 3px; 
+    cursor: pointer; 
+}
+
+a.item-of-navigation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+}
+
+a.item-of-navigation:hover::after {
+    width: 100%;  
+}
+
+
+.registration {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    text-decoration: none;
+    position: relative;       
+    padding-bottom: 3px;      
+    cursor: pointer;         
+}
+
+.registration::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.registration:hover::after {
+    width: 100%;
+}
+
+.backofheader{
+    width: 100%;
+    height: 810px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.back-pic {
+    width: 100%;
+    height: 810px; 
+    background-image: url("/all_pictures/fingfoo.png");
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+
+.title{
+    position: absolute; 
+    top: 45%;          
+    left: 50%;          
+    transform: translate(-50%, -50%);
+    z-index: 2;         
+    font-family: 'Geologica', sans-serif;
+    font-size: 80px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    pointer-events: none;
+    width: 985px;
+}
+
+.whatisdestin{
+    width: 903px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.nameofdestin{
+    font-family: 'Geologica', sans-serif;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    text-align: center;
+    pointer-events: none;
+}
+
+.shortdesc{
+    font-family: 'Geologica', sans-serif;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+    text-align: center;
+    pointer-events: none;
+    margin-top: 20px;
+    line-height: 1.6; 
+}
+
+.photos{
+    width: 1200px;
+    height: 342px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.nameofsection{
+     font-family: 'Geologica', sans-serif;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    text-align: center;
+    pointer-events: none;
+}
+
+.slider{
+    width: 100%;
+    height: 274px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow-left{
+    width: 22px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arleft{
+    width: 22px;
+    height: 45px;
+}
+
+.arrow-left img,
+.arrow-right img {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.arrow-left img.disabled,
+.arrow-right img.disabled {
+    opacity: 0.3; 
+    pointer-events: none; 
+}
+
+.arrow-right{
+     width: 22px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arright{
+     width: 22px;
+    height: 45px;
+}
+
+.photoss{
+    width: 1104px;
+    height: 274px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.photo{
+    width: 351px;
+    height: 274px;
+    object-fit: cover;
+}
+
+.history{
+    width: 1123px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.histotydesc{
+    font-family: 'Geologica', sans-serif;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+    pointer-events: none;
+    width: 1123px;
+    height: auto;
+      text-align: justify; 
+    line-height: 1.6; 
+    margin-top: 30px;
+}
+
+.histotydesc p {
+    margin-bottom: 15px; 
+    text-indent: 50px;   
+}
+
+.recomendation{
+    width: 1028px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.recomdesc{
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    font-family: 'Geologica', sans-serif;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+    pointer-events: none;
+    line-height: 1.6; 
+}
+
+.recomdesc ul {
+    margin-left: 25px; 
+    padding-left: 10px; 
+}
+
+
+
+.linktounesco{
+    width: 399px;
+    height: 77px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.linkunesco{
+     font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: #89ADDD;
+    font-weight: 100;
+    pointer-events: cursor;
+    text-decoration: underline;
+}
+
+.reviews{
+    width: 718px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.nameandcount{
+    width: 300px;
+    height: 71px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.countofrating{
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: #969696;
+    font-weight: 100;
+}
+
+.minerewies{
+    width: 712px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.stars{
+    width: 136px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.star.active {
+    filter: none;
+}
+
+.photo-preview-container {
+    display: none; 
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.photo-preview {
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  position: relative;
+  overflow: visible;
+  flex: 0 0 55px;
+  background: #222;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px ;
+    -webkit-border-radius: 15px ;
+    -moz-border-radius: 15px ;
+    -ms-border-radius: 15px ;
+    -o-border-radius: 15px ;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -5px;     
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 50;   
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+
+.inputandphoto{
+    width: 100%;
+    height: 136px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.photoofuser{
+    width: 51px;
+    height: 51px;
+    border-radius: 51px;
+    -webkit-border-radius: 51px;
+    -moz-border-radius: 51px;
+    -ms-border-radius: 51px;
+    -o-border-radius: 51px;
+    background-image: url("/all_pictures/default.png");
+    background-size: cover;
+    background-position: center;
+    background-color: #dcdcdc;
+}
+
+.input{
+    width: 646px;
+    height: 100%;
+    position: relative; 
+}
+
+.inputofrew{
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    border: 1px solid #5F5F5F;
+    padding: 20px; 
+    padding-right: 50px;
+    box-sizing: border-box; 
+    text-align: left; 
+    vertical-align: top; 
+    resize: none;
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: #000000;
+    font-weight: 100;
+}
+
+.inputofrew::placeholder {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: #969696;
+    font-weight: 100;
+}
+
+.pins{
+    width: 20px;
+    height: 20px;
+    background-image: url('/all_pictures/pins.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top:20px;
+    right: 20px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.pins.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+
+.send{
+    width: 136px;
+    height: 37px;
+    background-color: #89ADDD;
+    border-radius: 19px;
+    -webkit-border-radius: 19px;
+    -moz-border-radius: 19px;
+    -ms-border-radius: 19px;
+    -o-border-radius: 19px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.allrewies{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.max-photos-text {
+    margin: 4px 0 0 4px;
+    font-size: 11px;
+    font-weight: 300;
+    color: #9a9a9a;
+    font-family: 'Geologica', sans-serif;
+    width: fit-content;
+    margin-left: 480px;
+}
+
+
+.counfrew{
+    font-size: 12px;
+    color: #5F5F5F;
+    font-weight: 100;
+}
+
+.listofrew{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.itemofrew{
+    width: 100%;
+    height: 321px;
+    border-radius: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0px 35px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 34px;
+    -moz-border-radius: 34px;
+    -ms-border-radius: 34px;
+    -o-border-radius: 34px;
+    margin-bottom: 50px;
+}
+
+.pictures{
+    margin-top: 33px;
+    width: 187px;
+    height: 122px;
+}
+
+.photoofrew{
+    width: auto;
+    height: 122px;
+    background-color: #5F5F5F;
+     object-fit: cover;
+       background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.info_rew{
+    width: 611px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 41px;
+}
+
+.head_ofrew{
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info_user{
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.photouser{
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
+    background-color: #5F5F5F;
+     object-fit: cover;
+     background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+
+      background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.loginuser{
+    width: auto;
+    font-family: 'Geologica', sans-serif;
+    font-size: 14px;
+    color: #5F5F5F;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.datarew{
+    width: auto;
+    font-family: 'Geologica', sans-serif;
+    font-size: 14px;
+    color: #5F5F5F;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.rating{
+    width: 136px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.ra {
+  width: 20px;
+  height: 20px;
+  filter: grayscale(100%) brightness(1.2); 
+}
+
+.ra.active {
+  filter: none; 
+}
+
+.textofrew{
+    width: 611px;
+    height: auto;
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: black;
+    font-weight: 100;
+    text-align: justify;
+    margin-top: 25px;
+}
+
+.arrows{
+    width: 100%;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    width: 12px;
+    height: 25px;
+}
+
+.lef{
+    width: 12px;
+    height: 25px;
+}
+
+.right{
+    width: 12px;
+    height: 25px;
+}
+
+.rig{
+    width: 12px;
+    height: 25px;
+}
+
+.footer-photo {
+  width: 100%;
+  height: 206px;
+  background-size: cover;
+  background-position: center;
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-mask-image: url('/all_pictures/foother.png');
+  mask-image: url('/all_pictures/foother.png');
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: top;
+  margin-top: 100px;
+}
+
+
+.contentoffoother{
+  width: 1207px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.logofoothers{
+  height: auto;
+}
+
+.textfoother{
+  font-family: 'Geologica', sans-serif;
+  font-size: 15px;
+  color: white;
+  font-weight: 100;
+}
+
+.top-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawLineTop .15s ease-out forwards;
+}
+
+.left-vert, .right-vert {
+  transform: scaleY(0);
+}
+
+.left-vert {
+  transform-origin: bottom;
+  animation: growLeft .18s ease-out forwards;
+  animation-delay: .15s;
+}
+
+.middle-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawMiddle .18s ease-out forwards;
+  animation-delay: .25s;
+}
+
+.right-vert {
+  transform-origin: top;
+  animation: growRight .18s ease-out forwards;
+  animation-delay: .4s;
+}
+
+.bar {
+  transform: scaleY(0);
+  opacity: 0;
+  transform-origin: top;
+  animation: grow-bar .12s ease-out forwards;
+  -webkit-animation: grow-bar .12s ease-out forwards;
+}
+
+.bar-1 { animation-delay: .55s; }
+.bar-2 { animation-delay: .6s; }
+.bar-3 { animation-delay: .65s; }
+.bar-4 { animation-delay: .7s; }
+
+@keyframes grow-bar { to { opacity:1; transform:scaleY(1); } }
+@keyframes drawLineTop { to { stroke-dashoffset: 0; } }
+@keyframes growLeft { to { transform:scaleY(1); } }
+@keyframes drawMiddle { to { stroke-dashoffset: 0; } }
+@keyframes growRight { to { transform:scaleY(1); } }
+
+
+.favourite{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-image: url('/all_pictures/but_heart.png');
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.pic{
+    width: 40px;
+    height: 40px;
+}

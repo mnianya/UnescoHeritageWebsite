@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+/* Верхняя линия */
+.top-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawLineTop 0.25s ease-out infinite;
+}
+
+/* Левая вертикальная */
+.left-vert {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: growLeft 0.3s ease-out infinite;
+  animation-delay: 0.25s;
+}
+
+/* Средняя линия */
+.middle-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: drawMiddle 0.3s ease-out infinite;
+  animation-delay: 0.45s;
+}
+
+/* Правая вертикальная */
+.right-vert {
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: growRight 0.25s ease-out infinite;
+  animation-delay: 0.7s;
+}
+
+/* Барчики */
+.bar {
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: grow-bar 0.15s ease-out infinite;
+  opacity: 0;
+}
+
+.bar-1 { animation-delay: 0.85s; }
+.bar-2 { animation-delay: 0.95s; }
+.bar-3 { animation-delay: 1.05s; }
+.bar-4 { animation-delay: 1.15s; }
+
+
+@keyframes grow-bar {
+  50% { opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Анимации */
+@keyframes drawLineTop {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes growLeft {
+  to { transform: scaleY(1); }
+}
+@keyframes drawMiddle {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes growRight {
+  to { transform: scaleY(1); }
+}
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+</style>
+</head>
+<body>
+<svg width="120" height="120" viewBox="0 0 24 24" fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Верхняя линия -->
+  <path class="top-line" d="M0 0.75H24" stroke="black" stroke-width="1.5"/>
+
+  <!-- Вертикальные палки -->
+  <path class="bar bar-1" d="M7.60715 8.05762C7.60715 7.6434 7.27136 7.30762 6.85715 7.30762C6.44293 7.30762 6.10715 7.6434 6.10715 8.05762H6.85715H7.60715ZM6.85715 8.05762H6.10715V23.75H6.85715H7.60715V8.05762H6.85715Z" fill="black"/>
+  <path class="bar bar-2" d="M11.0357 8.05762C11.0357 7.6434 10.6999 7.30762 10.2857 7.30762C9.87149 7.30762 9.53571 7.6434 9.53571 8.05762H10.2857H11.0357ZM10.2857 8.05762H9.53571V23.75H10.2857H11.0357V8.05762H10.2857Z" fill="black"/>
+  <path class="bar bar-3" d="M14.4643 8.05762C14.4643 7.6434 14.1285 7.30762 13.7143 7.30762C13.3001 7.30762 12.9643 7.6434 12.9643 8.05762H13.7143H14.4643ZM13.7143 8.05762H12.9643V23.75H13.7143H14.4643V8.05762H13.7143Z" fill="black"/>
+  <path class="bar bar-4" d="M17.8929 8.05762C17.8929 7.6434 17.5571 7.30762 17.1429 7.30762C16.7286 7.30762 16.3929 7.6434 16.3929 8.05762H17.1429H17.8929ZM17.1429 8.05762H16.3929V23.75H17.1429H17.8929V8.05762H17.1429Z" fill="black"/>
+
+  <!-- Горизонтальная линия -->
+  <line class="middle-line" x1="2.67856" y1="4.28857" x2="21.3214" y2="4.28857" 
+        stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+<!-- Левая вертикальная — расти снизу вверх -->
+<path class="left-vert"
+      d="M2.67856 7.82704 V4.28857"
+      stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+
+<!-- Правая вертикальная — расти сверху вниз -->
+<path class="right-vert"
+      d="M21.3214 4.28857 V7.82704"
+      stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+
+</svg>
+</body>
+</html>

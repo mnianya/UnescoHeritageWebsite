@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Интерактивная карта памятников</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 📌 Карточка объекта */
+  #infoCard {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+  }
+
+  #infoCard.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #infoCard button {
+    margin-top: 8px;
+    width: 100%;
+    border: none;
+    background: #3a86ff;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #infoCard button:hover {
+    background: #2d73d9;
+  }
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+<div id="infoCard">
+  <div id="monName">Название</div>
+  <button id="openBtn">Просмотреть</button>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+const map = L.map('map').setView([40, 20], 2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+const monuments = [
+  { name: "Пещера рук", coords: [-48.7983, -72.6403] },
+  { name: "Колизей", coords: [41.8902, 12.4922] },
+  { name: "Исторический центр Санкт-Петербурга", coords: [59.9398, 30.3146] },
+  { name: "Собор Шартр", coords: [48.4474, 1.4870] },
+  { name: "Исторический центр Флоренции", coords: [43.7696, 11.2558] },
+  { name: "Рисовые террасы Филиппинских Кордильер", coords: [16.9310, 121.0550] },
+  { name: "Пещеры Ласко", coords: [45.0541, 1.1674] },
+  { name: "Мемориальный комплекс Аушвиц-Биркенау", coords: [50.0359, 19.1783] },
+  { name: "Сиднейский оперный театр", coords: [-33.8568, 151.2153] },
+  { name: "Несвижский замок", coords: [53.2224, 26.6913] },
+  { name: "Великая Китайская стена", coords: [40.4319, 116.5704] },
+  { name: "Мачу-Пикчу", coords: [-13.1631, -72.5450] },
+  { name: "Гранд-Каньон", coords: [36.0544, -112.1401] },
+  { name: "Петра", coords: [30.3285, 35.4444] },
+  { name: "Тадж-Махал", coords: [27.1751, 78.0421] },
+  { name: "Пирамиды Гизы", coords: [29.9792, 31.1342] },
+  { name: "Галапагосские острова", coords: [-0.9538, -90.9656] },
+  { name: "Долины Бамиан", coords: [34.8269, 67.8276] }
+];
+
+const infoCard = document.getElementById("infoCard");
+const monName = document.getElementById("monName");
+const openBtn = document.getElementById("openBtn");
+
+let selectedMonument = "";
+
+monuments.forEach(m => {
+  const marker = L.marker(m.coords).addTo(map);
+
+  // Ярлык с названием
+  const tooltipHtml = `
+    <span style="
+      background:white;
+      padding:2px 6px;
+      border-radius:4px;
+      font-weight:bold;
+      cursor:pointer;
+    ">
+      ${m.name}
+    </span>`;
+
+  marker.bindTooltip(tooltipHtml, {
+    permanent: true,
+    direction: "top",
+    offset: [0, -12],
+    opacity: 1
+  }).openTooltip();
+
+  // ✅ Клик по маркеру сразу переходит на страницу
+  marker.on("click", () => {
+  const destUrl = `/all_HTML/destination.html?name=${encodeURIComponent(m.name)}`;
+
+  // Записываем cookie
+  document.cookie = `selectedMonument=${encodeURIComponent(m.name)}; path=/; max-age=86400`;
+
+  // Пытаемся открыть страницу в полном окне (если не блокируется same-origin)
+  try {
+    if (window.top && window.top !== window.self) {
+      window.top.location.href = destUrl;
+      return;
+    }
+  } catch (e) {}
+
+  // Если в iframe и доступ к top запрещён → отправляем запрос родителю
+  if (window.parent && window.parent !== window.self) {
+    window.parent.postMessage({
+      type: "openDestination",
+      url: destUrl,
+      name: m.name
+    }, "*");
+    return;
+  }
+
+  // Если не в iframe — обычный переход
+  window.location.href = destUrl;
+});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 810px;
+    user-select: none;
+}
+
+input {
+    user-select: text;
+}
+
+.image-section {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.photo {
+  position: absolute;
+  -webkit-user-drag: none;
+}
+
+.images {
+  width: 330px;
+  height: auto;
+  display: block;
+  transform-origin: top center;
+  animation: swing 5s ease-in-out infinite alternate;
+}
+
+.pin {
+  width: 50px;
+  height: 50px;
+  background-image: url("/all_pictures/pin.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: -20px;
+  left: 53%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.one {
+  top: 130px;
+  left: 130px;
+  transform: rotate(10deg);
+}
+.two {
+  top: 127px;
+  left: 480px;
+  transform: rotate(-12deg);
+}
+.three {
+  top: 343px;
+  left: 278px;
+  transform: rotate(4deg);
+}
+
+@keyframes swing {
+  0%   { transform: rotate(6deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+.input-section{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-of-input-section{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    width: 329px;
+    flex-direction: column;
+    margin-left: 190px;
+}
+
+.hame-of-form{
+    font-family: 'Geologica', sans-serif;
+    font-size: 23px;
+    color: #0A1832;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.all-inputs{
+    width: 329px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inputs-group{
+    width: 329px;
+    height: 81px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.input-name{
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: black;
+    font-weight: 100;
+}
+
+.input-look{
+    width: 329px;
+    height: 45px;
+    border: 1px solid #6E6E6E;
+    border-radius: 22px;
+    transition: border-color 0.3s ease;
+    padding-left: 22px;
+    padding-right: 22px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.input-look::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+.input-look:focus {
+    border: 2px solid #89ADDD;
+    outline: none;
+}
+
+.submit-button{
+    width: 329px;
+    height: 45px;
+    background-color: #89ADDD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #6f95c9;
+}
+
+.submit-button-text{
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+    font-weight: 100;
+}
+
+.link-to-another-form{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.text-to-link{
+    font-family: 'Geologica', sans-serif;
+    font-size: 12px;
+    color: #000000;
+    font-weight: 100;
+}
+
+.transition-to-link{
+    font-family: 'Geologica', sans-serif;
+    font-size: 12px;
+    color: #89ADDD;
+    font-weight: 100;
+    text-decoration: underline;
+}
+
+.hidden{
+    display: none;
+}
+
+.eye{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 20.5%;
+    top: 60.5%;
+    cursor: pointer;
+}
+
+.eyes{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 20.5%;
+    top: 54%;
+    cursor: pointer;
+}

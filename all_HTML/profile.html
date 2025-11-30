@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monumentum</title>
+    <link rel="stylesheet" href="/all_CSS/profile.css">
+    <link rel="icon" href="/all_pictures/Group-2.ico" type="image/x-icon">
+</head>
+<body>
+    <section class="main">
+        <section class="infochange">
+            <div class="info">
+                <p class="heading">Профиль</p>
+                <div class="allsmtn">
+                    <div class="avatar-wrapper">
+                        <img src="/all_pictures/Rectangle 40.png" class="avatar-preview" alt="">
+                        <input type="file" class="image" accept="image/*">
+                    </div>
+                    <div class="input-look">
+                        <p class="nameinput">Логин:</p>
+                        <input type="text" class="login">
+                    </div>
+
+                    <div class="input-look">
+                        <p class="nameinput">Электронная почта:</p>
+                        <input type="text" class="email">
+                    </div>
+
+                    <div class="input-look">
+                        <p class="nameinput">Пароль:</p>
+                        <input type="password" class="password">
+                        <img src="/all_pictures/closeeye.png" class="eyes">
+                    </div>
+
+                    <button class="savechanges">Сохранить изменения</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="likedactivities" id="monumentsList">
+            <p class="head">Ваши понравившиеся памятники ЮНЕСКО</p>
+            <div class="listofactivities">
+                
+            </div>
+
+            <div class="arrows">
+                <div class="left" id="leftArrow"><img src="/all_pictures/left-photo.svg" class="lef" alt=""></div>
+                <div class="right" id="rightArrow"><img src="/all_pictures/right-photo.svg" class="rig" alt=""></div>
+            </div>
+        </section>
+
+        <button class="butdel" data-tooltip="Удалить аккаунт">
+            <img src="/all_pictures/material-symbols_delete-outline-rounded.png" alt="" class="delete">
+        </button>
+
+        <button class="butexit" data-tooltip="Выйти из аккаунта">
+            <img src="/all_pictures/iconamoon_exit-fill.png" alt="" class="exit">
+        </button>
+    </section>
+   
+    <script src="/all_JS/profile.js"></script>
+</body>
+</html>

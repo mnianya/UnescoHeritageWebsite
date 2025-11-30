@@ -1,0 +1,1186 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+textarea{
+    width: 0;
+    height: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.mains{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    height: 810px;
+     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu{
+    margin: 30px auto 0 auto;
+    width: 1200px;
+    height: 23px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    z-index: 100;
+}
+
+.logo{
+    width: 137px;
+    height: 100%;
+}
+
+.logo-pic{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation{
+    width: 1000px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 100;
+    margin-top: 31px;
+    margin-left: 330px;
+}
+
+.item-of-navigation {
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    color: white;
+    font-weight: 100;
+    text-decoration: none;
+    position: relative; 
+    display: inline-block; 
+    padding-bottom: 3px; 
+    cursor: pointer; 
+}
+
+a.item-of-navigation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+}
+
+a.item-of-navigation:hover::after {
+    width: 100%;  
+}
+
+.backofheader{
+    width: 100%;
+    height: 729px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.back-pic {
+    position: relative;
+    width: 100%;
+    height: 810px;
+    overflow: hidden;
+}
+
+.back-pic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/all_pictures/yes.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    transform: scale(1.1);
+    -webkit-filter: blur(3px);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.title{
+    position: absolute; 
+    top: 55%;          
+    left: 50%;          
+    transform: translate(-50%, -50%);
+    z-index: 2;         
+    font-family: 'Geologica', sans-serif;
+    font-size: 100px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    pointer-events: none;
+    width: 985px;
+}
+
+.add_dest{
+    width: 1200px;
+    height: 1163px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.headers{
+    width: auto;
+    height: 71px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainhead{
+    width: 100%;
+    height: 38px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 30px;
+    color: black;
+    font-weight: 300;
+    text-align: center;
+}
+
+.secondhead{
+    width: 100%;
+    height: 23px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    color: #969696;
+    font-weight: 100;
+    text-align: center;
+}
+
+.inputs{
+    width: 1200px;
+    height: 940px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.firstiputs{
+    width: 100%;
+    height: 92px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nameofinput{
+    font-family: 'Geologica', sans-serif;
+    font-size: 21px;
+    color: #89ADDD;
+    font-weight: 100;
+    text-align: center;
+}
+
+.nameofdestin{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.countryofdest{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.cityofdestin{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.name{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+.name::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+.name:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.city{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+.city::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+.city:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.country_dropdown{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+}
+
+#countrySearch{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+#countrySearch::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+#countrySearch:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.dropdown_list {
+    position: absolute;
+    width: 384px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 90px;
+    z-index: 50;
+}
+
+.dropdown_list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown_list li:hover {
+    background: #eee;
+}
+
+.hidden {
+    display: none;
+}
+
+.secondinputs{
+    width: 922px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoryofdest{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.linkofdestin{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.link{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+.link::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+.link:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.category_items {
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 45px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+    color: #000;
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("/all_pictures/arrow-blue.png"); 
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: calc(100% - 22px) center; 
+    cursor: pointer;
+}
+
+.category_items:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.category_items option[value=""] {
+    color: #969696;
+}
+
+.category_items option {
+    font-weight: 100; 
+    font-family: 'Geologica', sans-serif;
+    color: #000; 
+}
+
+.thirdinputs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px; 
+}
+
+.descripofdestin,
+.recomenofdestin {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.descrip,
+.recomendation {
+    width: 100%;
+    height: 109px;
+    border-radius: 20px;
+    border: 2px solid black; 
+    resize: none;
+    padding: 12px 16px; 
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-weight: 100;
+}
+
+.descrip:focus,
+.recomendation:focus {
+    border-color: #165cb7;
+    outline: none;
+}
+
+.descrip::placeholder,
+.recomendation::placeholder {
+    color: #969696;
+    font-weight: 100;
+}
+
+.historyofdestin{
+    width: 1196px;
+    height: 239px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.history{
+    width: 100%;
+    height: 199px;
+     border-radius: 20px;
+    border: 2px solid black; 
+    resize: none;
+    padding: 12px 16px; 
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-weight: 100;
+}
+
+.history:focus {
+    border-color: #165cb7;
+    outline: none;
+}
+
+.history::placeholder {
+    color: #969696;
+    font-weight: 100;
+}
+
+.photos{
+    width: 1196px;
+    height: 228px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.imagesall{
+    width: 1196px;
+    height: 109px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.addphotos{
+    width: 338px;
+    height: 56px;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    background-color: #000;
+    color: #ffffff;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    margin-left: 860px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.save{
+    width: 278px;
+    height: 56px;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    background-color: #89ADDD;
+    color: #ffffff;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.imagesall {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    height: 100px;
+     padding: 20px; 
+    box-sizing: border-box;
+
+    align-content: flex-start;
+}
+
+.photo-preview {
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  position: relative;
+  overflow: visible;
+  flex: 0 0 55px;
+  background: #222;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px ;
+    -webkit-border-radius: 15px ;
+    -moz-border-radius: 15px ;
+    -ms-border-radius: 15px ;
+    -o-border-radius: 15px ;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -5px;     
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 50;   
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.addphotos:hover {
+    background-color: #222; 
+    transform: translateY(-2px) scale(1.02);
+}
+
+.save:hover {
+    background-color: #6A90D3; 
+    transform: translateY(-2px) scale(1.02);
+}
+
+.change_dest{
+    width: 1202px;
+    height: 1262px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 150px;
+    position: relative;
+}
+
+.finddest{
+    width: 841px;
+    height: 59px;
+}
+
+.chosedest{
+    width: 841px;
+    height: 59px;
+    border-radius: 72px;
+    border: 2px solid black; 
+    padding: 12px 16px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.chosedest:focus {
+    border-color: #165cb7;
+    outline: none;
+}
+
+.chosedest::placeholder {
+    color: #969696;
+    font-weight: 100;
+}
+
+.fingicon{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 148px;
+    right: 200px;
+    z-index: 100;
+}
+
+.add_collec{
+    width: 1200px;
+    height: 338px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 150px;
+}
+
+.allinputshere{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 217px;
+}
+
+.firstpart{
+    width: 100%;
+    height: 92px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemofdestin{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.item{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+.item::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+.item:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.secondpart{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.saveall{
+    width: 278px;
+    height: 56px;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    background-color: #89ADDD;
+    color: #ffffff;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.saveall:hover {
+    background-color: #6A90D3; 
+    transform: translateY(-2px) scale(1.02);
+}
+
+.datafdestin{
+    width: 384px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.data{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+.data::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+.data:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.removecolle{
+    width: 1200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.collectremove {
+    width: 960px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: 'Geologica', sans-serif;
+    font-size: 19px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.collectremove tr:first-child td {
+    background-color: #7C9DD4;
+    color: #000;
+    font-weight: 400;
+    padding: 12px 0;
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+     font-size: 18px;
+}
+
+.collectremove td {
+    width: 25%;
+    height: 60px;
+    border: 2px solid rgba(0,0,0,0.25); 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Geologica', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.remove{
+     width: 278px;
+    height: 56px;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    background-color: #89ADDD;
+    color: #ffffff;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 50px;
+}
+
+.remove:hover {
+    background-color: #6A90D3; 
+    transform: translateY(-2px) scale(1.02);
+}
+
+.rewirs{
+    width: 1200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 150px;
+}
+
+.rewiesremove {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Geologica', sans-serif;
+    font-size: 19px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.rewiesremove tr:first-child td {
+    background-color: #7C9DD4;
+    color: #000;
+    font-weight: 400;
+    padding: 12px 0;
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+        font-size: 18px;
+}
+
+.rewiesremove td {
+    width: 16%; 
+    height: 60px;
+    border: 2px solid rgba(0,0,0,0.25);
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 10px;
+}
+
+.remove_rew{
+    margin-top: 50px;
+    width: 278px;
+    height: 56px;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    background-color: #89ADDD;
+    color: #ffffff;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+}
+
+.remove_rew:hover {
+    background-color: #6A90D3; 
+    transform: translateY(-2px) scale(1.02);
+}
+
+.footer-photo{
+  width: 100%;
+  height: 206px;
+  background-size: cover;
+  background-position: center;
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-mask-image: url('/all_pictures/adminfoo.png');
+  mask-image: url('/all_pictures/adminfoo.png');
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: top;
+  margin-top: 200px;
+}
+
+.contentoffoother{
+  width: 1207px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.logofoothers{
+  height: auto;
+}
+
+.textfoother{
+  font-family: 'Geologica', sans-serif;
+  font-size: 15px;
+  color: white;
+  font-weight: 100;
+}
+
+.current-filters {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px auto;
+    text-align: center;
+    color: #333;
+}
+
+.dropdown_list_name {
+    position: absolute;      
+    width: 841px;              
+    max-height: 200px;        
+    overflow-y: auto; 
+    background-color: #fff;   
+    border: 1px solid #ccc;  
+    border-top: none;        
+    z-index: 1000;           
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown_list_name li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.dropdown_list_name li:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown_list_name li.selected {
+    background-color: #e0e0ff;
+}
+
+.dropdown_list_name.hidden {
+    display: none;
+}
+
+#countrySearchs{
+    width: 100%;
+    height: 47px;
+    border-radius: 47px;
+    -webkit-border-radius: 47px;
+    -moz-border-radius: 47px;
+    -ms-border-radius: 47px;
+    -o-border-radius: 47px;
+    border: 2px solid black;
+    padding-left: 22px;
+    padding-right: 22px;
+     box-sizing: border-box;
+}
+
+#countrySearchs::placeholder {
+    color: #969696;         
+    font-size: 15px;   
+    font-family: 'Geologica', sans-serif;
+    font-weight: 100;
+}
+
+#countrySearchs:focus {
+    border: 2px solid #165cb7;
+    outline: none;
+}
+
+.saves{
+    width: 278px;
+    height: 56px;
+    border-radius: 28px;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    -ms-border-radius: 28px;
+    -o-border-radius: 28px;
+    background-color: #89ADDD;
+    color: #ffffff;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.saves:hover {
+    background-color: #6A90D3; 
+    transform: translateY(-2px) scale(1.02);
+}
+
+.dropdown_list_smth {
+    position: absolute;       
+    width: 100%;               
+    max-height: 180px;       
+    overflow-y: auto;          
+    background-color: #fff;    
+    border: 1px solid #ccc;   
+    border-radius: 6px;      
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 100;              
+    padding: 0;
+    margin-top: 90px;
+    list-style: none;          
+}
+
+.dropdown_list_smth.hidden {
+    display: none;
+}
+
+.dropdown_list_smth li {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.dropdown_list_smth li:hover {
+    background-color: #f0f0f0;
+}
+
+.itemofdestin {
+    position: relative; 
+}
+
+.selected-row {
+    background-color: rgba(124, 157, 212, 0.3);
+    cursor: pointer;
+}
+.collectremove tr:hover:not(:first-child) {
+    background-color: rgba(124, 157, 212, 0.2);
+}
+
+.rewiesremove tr.selected {
+    background-color: rgba(124, 157, 212, 0.3);
+    cursor: pointer;
+}
+.rewiesremove tr:hover {
+    background-color: rgba(124, 157, 212, 0.3);
+}
+
+.review-photo{
+    width: 50px;
+    height: 50px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Закрыть */
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+/* Фото внутри */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    background: #fff;
+}
+
+.photo-link {
+    color: #0077ff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.photo-link:hover {
+    opacity: 0.7;
+}
+
+.exit{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #e00000;
+    color: white;
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    position: fixed;
+    top: 90%;
+    right: 3%;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    cursor: pointer;
+}
