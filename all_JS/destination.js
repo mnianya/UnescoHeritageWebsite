@@ -8,9 +8,9 @@ window.addEventListener("load", async () => {
      const loader = document.getElementById("svgLoader");
     const main = document.querySelector(".main");
 
-    main.style.display = "flex"; // показываем контент
+    main.style.display = "flex";
     setTimeout(() => {
-        main.style.opacity = "1"; // плавное появление
+        main.style.opacity = "1"; 
     }, 10);
 
 
@@ -41,10 +41,7 @@ window.addEventListener("load", async () => {
         const data = await response.json();
         console.log("Получено:", data);
 
-         // ✅ Заголовок
-        // document.querySelector(".title").textContent = data.name;
 
-        // ✅ Название + краткое описание
         document.querySelector(".nameofdestin").textContent = data.name;
         document.querySelector(".shortdesc").textContent = data.shortDescription;
 
@@ -52,18 +49,16 @@ window.addEventListener("load", async () => {
         const leftArrow = document.querySelector(".arleft");
         const rightArrow = document.querySelector(".arright");
 
-        const photos = data.photos; // массив URL фотографий
+        const photos = data.photos; 
 
         if (!photos || photos.length === 0) return;
 
-        // --- HEADER ---
         const headerBg = document.querySelector("#header .back-pic");
-        headerBg.style.backgroundImage = `url('${photos[0]}')`; // первая фото для header
+        headerBg.style.backgroundImage = `url('${photos[0]}')`;
         document.querySelector('.footer-photo')
         .style.backgroundImage = `url('${photos[0]}')`;
 
-        // --- СЛАЙДЕР ---
-        let startIndex = 1; // слайдер начинается со второй фотографии
+        let startIndex = 1; 
         const visibleCount = 3;
 
         function renderSlider() {
@@ -76,14 +71,12 @@ window.addEventListener("load", async () => {
                 photosContainer.appendChild(img);
             }
 
-            // --- Обновление стрелок ---
             leftArrow.classList.toggle("disabled", startIndex === 1);
             rightArrow.classList.toggle("disabled", startIndex + visibleCount >= photos.length);
         }
 
         renderSlider();
 
-        // --- Обработчики стрелок ---
         leftArrow.addEventListener("click", () => {
             if (startIndex > 1) {
                 startIndex--;
@@ -98,7 +91,6 @@ window.addEventListener("load", async () => {
             }
         });
 
-                // ✅ История — разделяется на абзацы
         const histBlock = document.querySelector(".histotydesc");
         histBlock.innerHTML = "";
         data.history.split('\n').forEach(p => {
@@ -109,13 +101,10 @@ window.addEventListener("load", async () => {
             }
         });
 
-              // ✅ Твоя дата уже есть
         const recomContainer = document.querySelector(".recomdesc");
 
-        // Вся строка с твоими рекомендациями
         const text = data.visitRecommendations;
 
-        // Создаем блоки
         const blocks = {
           bestTime: "",
           ticketInfo: "",
@@ -123,7 +112,6 @@ window.addEventListener("load", async () => {
           advice: []
         };
 
-        // Разбиваем на строки по переносу строки или точке+пробел
         const lines = text.split(/\r?\n|\.\s*/).map(l => l.trim()).filter(Boolean);
 
         let currentBlock = null;
@@ -141,7 +129,6 @@ window.addEventListener("load", async () => {
             currentBlock = 'advice';
           } else {
             if (currentBlock === 'mustSee' || currentBlock === 'advice') {
-              // Разделяем на отдельные пункты по точке или двоеточию
               line.split(/[:.]\s*/).forEach(item => {
                 const trimmed = item.trim();
                 if (trimmed) blocks[currentBlock].push(trimmed);
@@ -152,7 +139,6 @@ window.addEventListener("load", async () => {
           }
         });
 
-        // Выводим в контейнер
         recomContainer.innerHTML = `
           <p><strong>Лучшее время:</strong> ${blocks.bestTime}</p>
           <p><strong>Билеты:</strong> ${blocks.ticketInfo}</p>
@@ -168,11 +154,9 @@ window.addEventListener("load", async () => {
           </ul>
         `;
 
-
-        // ✅ Ссылка на ЮНЕСКО
         const unescoLink = document.querySelector(".linkunesco");
         unescoLink.href = data.unescoLink;
-        unescoLink.target = "_blank"; // открывать в новой вкладке
+        unescoLink.target = "_blank"; 
         unescoLink.textContent = "Открыть страницу ЮНЕСКО";
 
 
@@ -225,7 +209,6 @@ window.addEventListener("load", async () => {
             }
         }
 
-        // Запускаем функцию
         loadUserPhoto();
 
         const stars = document.querySelectorAll(".stars .star");
@@ -233,8 +216,7 @@ window.addEventListener("load", async () => {
         const fileInput = document.getElementById("reviewPhoto");
         const previewContainer = document.querySelector(".photo-preview-container");
         let selectedRating = 0;
-
-        // ⭐ Выбор рейтинга
+        
         stars.forEach((star, index) => {
             star.addEventListener("click", () => {
                 selectedRating = index + 1;
@@ -245,14 +227,12 @@ window.addEventListener("load", async () => {
             });
         });
 
-        // 📎 Событие клика по скрепке
         pinButton.addEventListener("click", () => {
             fileInput.click();
         });
 
         let selectedPhotos = [];
 
-            // 📸 Превью фотографий
         fileInput.addEventListener("change", (e) => {
             const files = Array.from(e.target.files);
 
@@ -285,8 +265,6 @@ window.addEventListener("load", async () => {
                 previewContainer.appendChild(div);
         });
 
-            // ✅ Скрываем контейнер, если нет фото
-        // ✅ показываем/скрываем и добавляем отступы только при наличии фото
         if (selectedPhotos.length > 0) {
             previewContainer.style.display = "flex";
             previewContainer.style.margin = "10px 0";
@@ -295,15 +273,12 @@ window.addEventListener("load", async () => {
             previewContainer.style.margin = "0";
         }
 
-
-        // ✅ Скрепка неактивна при 3 фото
         if (selectedPhotos.length >= 1) {
             pinButton.classList.add("disabled");
         } else {
             pinButton.classList.remove("disabled");
         }
 
-        // 🗑 Удаление фото
         document.querySelectorAll(".remove-btn").forEach(btn =>
             btn.addEventListener("click", (e) => {
                 const idx = e.target.dataset.index;
@@ -313,7 +288,6 @@ window.addEventListener("load", async () => {
         );
 }
 
-        // ✅ Кнопка отправки
         const sendBtn = document.querySelector(".send");
         const textArea = document.querySelector(".inputofrew");
 
@@ -334,8 +308,6 @@ window.addEventListener("load", async () => {
                 return;
             }
 
-
-            // ✅ Валидация
             if (selectedRating < 1) {
                 alert("Поставьте хотя бы одну звезду");
                 return;
@@ -351,7 +323,6 @@ window.addEventListener("load", async () => {
                 return;
             }
 
-            // ✅ DTO для отправки
             const reviewData = {
                 userLogin: userLogin,
                 monumentName: monumentName,
@@ -362,7 +333,6 @@ window.addEventListener("load", async () => {
             };
 
             console.log(selectedPhotos[0]);
-
 
             console.log("Отправляю отзыв:", reviewData);
 
@@ -377,7 +347,6 @@ window.addEventListener("load", async () => {
 
                 if (!response.ok) throw new Error("Ошибка сервера");
 
-                // ✅ Создаём объект нового отзыва до очистки
                 const newReview = {
                     userLogin,
                     rating: selectedRating,
@@ -389,23 +358,18 @@ window.addEventListener("load", async () => {
                         .replace('")','')
                 };
 
-                // ✅ Добавляем сверху списка
                 reviews.unshift(newReview);
 
-                // ✅ Перерендер списка
                 currentIndex = 0;
                 renderReviews();
 
-                // ✅ Пересчитать и обновить рейтинг + количество отзывов
                 updateRatingInfo(reviews);
 
-                // ✅ Обновить число в блоке "Всего X отзывов"
                 document.querySelector(".counfrew").textContent =
                     `Всего: ${reviews.length} отзыв(ов)`;
                 document.querySelector(".countofrating").textContent =
                     `Средний рейтинг: ${(reviews.reduce((s,r)=>s+r.rating,0)/reviews.length).toFixed(1)}`;
 
-                    // ✅ Очистка формы
                 selectedPhotos = [];
                 selectedRating = 0;
                 textArea.value = "";
@@ -418,30 +382,27 @@ window.addEventListener("load", async () => {
             }
         });
 
-
-        const reviews = data.reviews; // данные отзывов
+        const reviews = data.reviews; 
         const listContainer = document.querySelector('.listofrew');
         const totalReviewsEl = document.querySelector('.totalReviews');
         const leftArrows = document.querySelector('.arrows .left img');
         const rightArrows = document.querySelector('.arrows .right img');
 
         let currentIndex = 0;
-        const visibleCounts = 2; // показываем одновременно максимум 2 отзыва
+        const visibleCounts = 2;
 
-        // Форматирование даты
         function formatDate(dateStr) {
             const months = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'];
             const date = new Date(dateStr);
             return `${date.getDate()} ${months[date.getMonth()]}`;
         }
 
-        // Рендер отзывов
         function renderReviews() {
-            listContainer.innerHTML = ''; // очищаем контейнер
+            listContainer.innerHTML = ''; 
 
              if (!reviews || reviews.length === 0) {
-                listContainer.style.display = 'none';              // скрываем отзывы
-                leftArrows.style.display = 'none';                 // скрываем стрелки
+                listContainer.style.display = 'none';              
+                leftArrows.style.display = 'none';                
                 rightArrows.style.display = 'none';
                 return;
             }
@@ -461,7 +422,6 @@ window.addEventListener("load", async () => {
                 const item = document.createElement('div');
                 item.className = 'itemofrew';
 
-                // Фото отзыва
                 const pictures = document.createElement('div');
                 pictures.className = 'pictures';
                 const photoDiv = document.createElement('div');
@@ -475,7 +435,6 @@ window.addEventListener("load", async () => {
                 pictures.appendChild(photoDiv);
                 item.appendChild(pictures);
 
-                // Открытие фото в новой вкладке через Blob
                 photoDiv.addEventListener('click', () => {
                     const byteString = atob(review.reviewPhoto.split(',')[1]);
                     const mimeString = review.reviewPhoto.split(',')[0].split(':')[1].split(';')[0];
@@ -487,7 +446,6 @@ window.addEventListener("load", async () => {
                     window.open(url, '_blank');
                 });
 
-                // Информация о пользователе
                 const info = document.createElement('div');
                 info.className = 'info_rew';
 
@@ -520,7 +478,6 @@ window.addEventListener("load", async () => {
                 userInfo.appendChild(loginuser);
                 userInfo.appendChild(datarew);
 
-                // Рейтинг
                 const rating = document.createElement('div');
                 rating.className = 'rating';
                 for (let i = 0; i < 5; i++) {
@@ -546,7 +503,6 @@ window.addEventListener("load", async () => {
                 listContainer.appendChild(item);
             });
 
-            // Стрелки
             leftArrows.style.opacity = currentIndex === 0 ? 0.3 : 1;
             leftArrows.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
 
@@ -556,36 +512,32 @@ window.addEventListener("load", async () => {
 
         rightArrows.addEventListener('click', () => {
             if (currentIndex + visibleCounts < reviews.length) {
-                currentIndex += visibleCounts; // двигаемся на 2 сразу
+                currentIndex += visibleCounts;
                 renderReviews();
             }
         });
 
         leftArrows.addEventListener('click', () => {
             if (currentIndex - visibleCounts >= 0) {
-                currentIndex -= visibleCounts; // двигаемся назад на 2
+                currentIndex -= visibleCounts; 
                 renderReviews();
             }
         });
 
-
-        // Вызов рендера при загрузке
         renderReviews();
 
-        // Логотип
         const logo = document.getElementById('logo');
         logo.addEventListener('click', () => {
-            window.location.href = '/all_HTML/main.html'; // или путь к главной
+            window.location.href = '/all_HTML/main.html'; 
         });
 
         document.querySelectorAll('.item-of-navigation').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // отменяем стандартный переход
+                e.preventDefault(); 
 
                 const text = link.textContent?.trim();
                 let targetSection = null;
 
-                // Сопоставляем текст ссылки с соответствующей секцией
                 switch(text){
                     case "Фотографии":
                         targetSection = document.querySelector('.photos');
@@ -605,7 +557,7 @@ window.addEventListener("load", async () => {
                 }
 
                 if(targetSection){
-                    const yOffset = -60; // отступ сверху, чтобы шапка не закрывала секцию
+                    const yOffset = -60;
                     const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 }
@@ -621,22 +573,18 @@ window.addEventListener("load", async () => {
      const favouriteBtn = document.querySelector(".favourite");
     const heartImg = favouriteBtn.querySelector(".pic");
 
-    // Получаем список избранных памятников с сервера
     let favorites = [];
     try {
         const response = await fetch(`https://localhost:7156/api/Favorites/user?userLogin=${encodeURIComponent(userLogin)}`);
-        if (response.ok) favorites = await response.json(); // массив названий памятников
+        if (response.ok) favorites = await response.json(); 
     } catch (err) {
         console.error("Ошибка при загрузке избранного", err);
     }
 
-    // Устанавливаем начальное состояние сердечка
     heartImg.src = favorites.includes(monumentName) ? "/all_pictures/full_heart.png" : "/all_pictures/heart.png";
 
-    // Обработчик клика по сердечку
 favouriteBtn.addEventListener("click", async () => {
 
-    // ❗ Если пользователь не авторизован — отправляем на регистрацию
     if (!userLogin || userLogin.trim() === "") {
         window.location.href = "/all_HTML/registrationform.html";
         return;
@@ -645,7 +593,6 @@ favouriteBtn.addEventListener("click", async () => {
     const isFav = heartImg.src.includes("full_heart.png");
 
     if (!isFav) {
-        // Добавляем в избранное
         await fetch(
             `https://localhost:7156/api/Favorites/addByName?userLogin=${encodeURIComponent(userLogin)}&monumentName=${encodeURIComponent(monumentName)}`,
             { method: "POST" }
@@ -654,7 +601,6 @@ favouriteBtn.addEventListener("click", async () => {
         heartImg.src = "/all_pictures/full_heart.png";
         favorites.push(monumentName);
     } else {
-        // Удаляем из избранного
         await fetch(
             `https://localhost:7156/api/Favorites/removeByName?userLogin=${encodeURIComponent(userLogin)}&monumentName=${encodeURIComponent(monumentName)}`,
             { method: "DELETE" }
@@ -672,11 +618,9 @@ window.addEventListener("load", async () => {
     const loader = document.getElementById("svgLoader");
     const main = document.querySelector(".main");
 
-    // Скрываем контент до загрузки
     main.style.display = "none";
     main.style.opacity = "0";
 
-    // ✅ ЗАГРУЗКА ПОЛЬЗОВАТЕЛЯ И ДАННЫХ
     const cookies = document.cookie.split(";").reduce((acc, cookie) => {
         const [key, value] = cookie.trim().split("=");
         acc[key] = decodeURIComponent(value || "");
@@ -703,7 +647,6 @@ window.addEventListener("load", async () => {
         console.error(error);
     }
 
-    // ✅ ПОСЛЕ ТОГО, КАК ВСЁ ЗАГРУЖЕНО
     loader.style.transition = "opacity 2s ease";
     loader.style.opacity = "0";
 
@@ -713,3 +656,4 @@ window.addEventListener("load", async () => {
         requestAnimationFrame(() => main.style.opacity = "1");
     }, 2000);
 });
+
