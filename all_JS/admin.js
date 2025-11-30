@@ -159,7 +159,6 @@ saveBtn.addEventListener("click", async () => {
     const searchInput = document.getElementById("countrySearch");
     const countryList = document.getElementById("countryList");
 
-    // Поиск по странам
     searchInput.addEventListener("input", function () {
         const value = this.value.toLowerCase();
         countryList.innerHTML = "";
@@ -215,7 +214,6 @@ saveBtn.addEventListener("click", async () => {
     document.querySelector('.footer-photo')
   .style.backgroundImage = `url('/all_pictures/adminfoo.png')`;
 
-// ====== Элементы ======
 const monumentSearch = document.getElementById('monumentSearch');
 const monumentList = document.getElementById('monumentList');
 
@@ -229,7 +227,6 @@ const inputRecomendation = document.getElementById('recom');
 const inputHistory = document.getElementById('hist');
 const imagesAll = document.getElementById('imageshere');
 
-// ====== Автодополнение ======
 monumentSearch.addEventListener('input', async () => {
     const query = monumentSearch.value.trim();
     if (!query) {
@@ -250,7 +247,6 @@ monumentSearch.addEventListener('input', async () => {
     }
 });
 
-// ====== Выбор памятника ======
 monumentList.addEventListener('click', async (e) => {
     if (e.target.tagName === 'LI') {
         const monumentName = e.target.textContent;
@@ -261,18 +257,16 @@ monumentList.addEventListener('click', async (e) => {
             const response = await fetch(`https://localhost:7156/api/MonumentDetails/${encodeURIComponent(monumentName)}`);
             const data = await response.json();
 
-            // ====== Заполняем поля ======
             inputName.value = data.name || '';
             inputCity.value = data.city || '';
             inputCountry.value = data.countryName || '';
-
-            // ====== Категория ======
+            
             if (data.categoryName) {
                 Array.from(inputCategory.options).forEach(opt => {
                     opt.selected = (opt.value === data.categoryName);
                 });
             } else {
-                inputCategory.selectedIndex = 0; // Сбрасываем выбор, если нет категории
+                inputCategory.selectedIndex = 0;
             }
 
             inputLink.value = data.unescoLink || '';
@@ -280,7 +274,6 @@ monumentList.addEventListener('click', async (e) => {
             inputRecomendation.value = data.visitRecommendations || '';
             inputHistory.value = data.history || '';
 
-            // ====== Загружаем фотографии ======
             imagesAll.innerHTML = '';
             if (data.photos && data.photos.length > 0) {
                 data.photos.forEach(url => {
@@ -325,20 +318,17 @@ saveBtnnw.addEventListener('click', async () => {
     const visitRecommendations = inputRecomendation.value.trim();
     const history = inputHistory.value.trim();
 
-    // ====== Проверка обязательных полей ======
     if (!name || !city || !countryName || !categoryName || !shortDescription || !history) {
         alert('Пожалуйста, заполните все обязательные поля.');
         return;
     }
 
-    // ====== Фотографии ======
     const photoUrls = Array.from(imagesAll.querySelectorAll('img')).map(img => img.src);
     if (photoUrls.length < 3) {
         alert('Загрузите минимум 3 фотографии.');
         return;
     }
 
-    // ====== Формируем DTO ======
     const dto = {
         name,
         city,
@@ -348,7 +338,7 @@ saveBtnnw.addEventListener('click', async () => {
         shortDescription,
         visitRecommendations,
         history,
-        photosBase64: photoUrls // Можно использовать base64 или url, в зависимости от API
+        photosBase64: photoUrls 
     };
 
     try {
@@ -408,7 +398,6 @@ inputs.forEach((input, index) => {
             const data = await response.json();
             const monuments = data.monuments;
 
-            // Фильтруем уже выбранные памятники в других input
             const selectedNames = inputs.map(i => i.value.trim()).filter(n => n && n !== query);
             const filtered = monuments.filter(m => !selectedNames.includes(m.name));
 
@@ -419,7 +408,6 @@ inputs.forEach((input, index) => {
         }
     });
 
-    // Выбор памятника
     dropdowns[index].addEventListener('click', async e => {
         if (e.target.tagName === 'LI') {
             input.value = e.target.textContent;
@@ -428,7 +416,6 @@ inputs.forEach((input, index) => {
     });
 });
 
-// Скрытие dropdown при клике вне input
 document.addEventListener('click', e => {
     inputs.forEach((input, idx) => {
         if (!input.contains(e.target) && !dropdowns[idx].contains(e.target)) {
@@ -442,7 +429,6 @@ document.querySelector('.saveall').addEventListener('click', async () => {
     const names = inputs.map(input => input.value.trim());
     const date = document.querySelector('.data').value;
 
-    // Проверка заполнения
     if (names.some(n => !n) || !date) {
         alert('Пожалуйста, заполните все поля и дату.');
         return;
@@ -474,13 +460,11 @@ document.querySelector('.saveall').addEventListener('click', async () => {
 const table = document.querySelector(".collectremove");
 let selectedCollectionId = null;
 
-// ✅ Загрузка коллекций в таблицу
 async function loadCollections() {
     try {
         const response = await fetch("https://localhost:7156/api/DailyMonuments/all");
         const collections = await response.json();
 
-        // Удаляем старые строки, кроме заголовков
         table.querySelectorAll("tr:not(:first-child)").forEach(row => row.remove());
 
         collections.forEach(c => {
@@ -505,14 +489,12 @@ async function loadCollections() {
     }
 }
 
-// ✅ Выбор строки
 function selectRow(row) {
     table.querySelectorAll("tr").forEach(tr => tr.classList.remove("selected-row"));
     row.classList.add("selected-row");
     selectedCollectionId = row.dataset.id;
 }
 
-// ✅ Удаление коллекции
 document.querySelector(".remove").addEventListener("click", async () => {
     if (!selectedCollectionId) {
         alert("Выберите коллекцию для удаления!");
@@ -538,7 +520,6 @@ document.querySelector(".remove").addEventListener("click", async () => {
     }
 });
 
-// ✅ Загружаем при старте
 loadCollections();
 
 const tables = document.querySelector(".rewiesremove");
@@ -550,7 +531,6 @@ async function loadReviews() {
 
     console.log(reviews)
 
-    // Удаляем старые строки (кроме заголовков)
     tables.querySelectorAll("tr:not(:first-child)").forEach(tr => tr.remove());
 
     const modal = document.getElementById("imageModal");
@@ -581,9 +561,6 @@ async function loadReviews() {
                 selectedReviewId = r.reviewId;
             });
 
-            
-            
-    // ✅ просмотр фото
         const img = row.querySelector(".photo-link");
         if (img) {
             img.addEventListener("click", (e) => {
@@ -630,10 +607,9 @@ async function loadReviews() {
     });
 
     document.querySelector(".exit").addEventListener("click", () => {
-        // ✅ Очистка куки
         document.cookie = "userLogin=; path=/; max-age=0; SameSite=Lax";
 
-        // ✅ Переход на главную страницу
         window.location.href = "/all_HTML/main.html";
     });
+
 });
