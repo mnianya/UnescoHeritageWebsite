@@ -21,7 +21,8 @@ The file contains:
 - table definitions
 - relationships
 - constraints
-❗ The dump does NOT include any data.
+
+The dump does NOT include any data.
 Due to the large size of the full dump (over 130 MB), caused by images stored in Base64 format, it could not be uploaded to GitHub.
 For this reason, only the clean structure of the database is provided.
 
